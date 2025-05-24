@@ -1,18 +1,19 @@
 import express from "express"
-import cors from "cors"
-import gamingtime from "./route/gamingtime.js"
+import {router as gamingtimeRouter} from "./gamingtime/index.js"
+import { router as tasksRouter } from "./tasks/index.js"
 
 const app = express()
+const port = 3000
 
-app.use(cors())
-app.use(express.json())
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`)
+})
 
 
+app.use("/api/time", gamingtimeRouter)
+app.use("/api/:user/task", tasksRouter)
 
-app.use("/api/time", gamingtime)
-
-app.use("*", (req, res) => res.status(404).json({error: "not found"}))
-
+app.use("", (req, res) => res.status(404).json({error: "not found"}))
 
 
 
