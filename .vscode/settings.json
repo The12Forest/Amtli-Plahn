@@ -1,9 +1,13 @@
 {
     "cSpell.ignoreWords": [
+        "adduser",
         "gamingtime",
+        "logprefix",
         "mtli",
+        "taskid",
         "timeadd",
-        "userbutton"
+        "userbutton",
+        "usertime"
     ],
     "cSpell.words": [
         "Rechte",

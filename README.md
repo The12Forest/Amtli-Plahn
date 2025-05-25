@@ -1,5 +1,12 @@
-<<<<<<< HEAD
-# &Auml;mtli-Plahn
-=======
-# Amtli-Plahn
->>>>>>> 0555c24c37e875d0383f62b43803bc25cfdd8be5
+# &Auml;mtli-Plan
+## Tutorial
+I used: [Link](https://www.youtube.com/watch?v=nu_pCVPKzTk&t=162s)
+I used: [Link](https://www.youtube.com/watch?v=yQ1fz8LY354)
+https://www.youtube.com/watch?v=YEmdHbQBCSQ
+
+
+
+Features:
+- Time stop for a Task
+- Del Users
+- Admin Portal
