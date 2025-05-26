@@ -33,6 +33,10 @@ router.use("/add/:user", (req, res) => {
   }
 })
 
+router.use("/all", (req, res) => {
+  res.json(user)
+})
+
 
 
 router.use("", (req, res) => res.status(404).json({error: "not found"}))
