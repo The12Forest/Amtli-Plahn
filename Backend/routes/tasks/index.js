@@ -3,6 +3,7 @@ import express from "express"
 import cron from 'node-cron';
 import fs from 'fs';
 const router = express.Router()
+const baseurl = "http://127.0.0.1:3000"
 const logprefix = "TaskRouter:      "
 let tasks = []
 let users = []
@@ -10,21 +11,16 @@ let users = []
 
 router.use("/save", (req, res) => {
   let buffer = JSON.stringify(tasks)
-  fs.writeFileSync("./saves/tasks.json", buffer)
+  fs.writeFileSync("./Backend/saves/tasks.json", buffer)
   console.log(logprefix + "Settings saved: " + buffer)
   res.json(buffer)
 })
 
 router.use("/load", (req, res) => {
-  tasks = JSON.parse(fs.readFileSync("./saves/tasks.json"))
-  users = JSON.parse(fs.readFileSync("./saves/user.json"))
+  tasks = JSON.parse(fs.readFileSync("./Backend/saves/tasks.json"))
+  users = JSON.parse(fs.readFileSync("./Backend/saves/user.json"))
   console.log(logprefix + "Tasks loaded:  " + tasks)
   console.log(logprefix + "Users loaded:  " + users)
-  res.json(tasks)
-})
-
-router.use("/update", (req, res) => {
-  tasks = tasks
   res.json(tasks)
 })
 
@@ -36,7 +32,7 @@ router.use("/adduser/:user", (req, res) => {
     users.push(req.params.user)
     tasks.push([])
     res.json({"user added": req.params.user})
-    console.log(logprefix + "user added: " + req.params.user)
+    console.log(logprefix + "user added: " + req.params.user + ".")
   }  
 })
 
@@ -59,8 +55,10 @@ router.get("/create/:user/:task/", (req, res) => {
   let userid = users.indexOf(req.params.user)
   if (userid !== -1) {
     tasks[userid].push(req.params.task)
+    console.log(logprefix + "Creating task: Tasks of user: " + req.params.user + " Task: " + tasks[userid])
     res.send(tasks)
   } else {
+    console.log(logprefix + "Creating task: User dose not exist.")
     res.send("User dose not exist.")
   }
 })
@@ -72,11 +70,14 @@ router.get("/del/:user/:task/", (req, res) => {
     if (taskid !== -1) {
       tasks[userid].splice(taskid, 1)
       res.send(tasks)
+      console.log(logprefix + "Deleting task: " + req.params.task + " of user: " + req.params.user + ".")
     } else {
       res.send("Task dose not exist.")
+      console.log(logprefix + "Deleting task: Task: " + req.params.task + "of user " + req.params.user + " dose not exist.")
     }
   } else {
     res.send("User dose not exist.")
+    console.log(logprefix + "Deleting task: User " + req.params.user + " dose not exist.")
   }
 })
 
@@ -86,15 +87,15 @@ router.get("/done/:user/:task/", (req, res) => {
   if (userid !== -1) {
     if (taskid !== -1) {
       tasks[userid].splice(taskid, 1)
-      console.log(logprefix + "Task " + taskid + " marked as done.")
-      fetch("http://localhost:3000/api/time/" + req.params.user + "/10")
+      console.log(logprefix + "Task " + req.params.task + "of userid " + req.params.user + " marked as done.")
+      fetch(baseurl + "/api/time/" + req.params.user + "/10")
       res.send(tasks)
     } else {
       res.send("Task dose not exist.")
-      console.log(logprefix + "Task " + taskid + " tryed to marke as done, but it dosen't exist.")
+      console.log(logprefix + "Task " + req.params.task + "of userid " + req.params.user + " tyred to mark as done, but it didn't exist.")
     }
   } else {
-      console.log(logprefix + "Task " + taskid + " tryed to marke as done, but the user: '" + req.params.user + "' dosen't exist.")
+      console.log(logprefix + "Task " + req.params.task + " tyred to mark as done, but the user: '" + req.params.user + "' didn't exist.")
   }
 })
 
@@ -102,8 +103,9 @@ router.get("/all/:user/", (req, res) => {
   let userid = users.indexOf(req.params.user)
   if (userid !== -1) {
     res.json(tasks[userid])
+    console.log(logprefix + "Searched for tasks of user: " + req.params.user + " and the tasks where " + tasks[userid])
   } else {
-    res.send("User dose not exist.")
+    res.send(logprefix + "Searched for tasks of user: " + req.params.user + " but the user didn't exist.")
   }
 })
 

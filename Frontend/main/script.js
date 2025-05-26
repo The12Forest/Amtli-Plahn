@@ -6,7 +6,7 @@ fetch(basedomain + "/api/user/all")
     const div = document.getElementById("user-button");
         if (Array.isArray(data)) {
             if (data.length == 0) {
-              div.textContent = "Keine User gefunden.";
+              div.textContent = "No user found.";
               return;
             }
 
@@ -15,29 +15,26 @@ fetch(basedomain + "/api/user/all")
             while (i < data.length) {
                 console.log(data[i])
                 console.log(i)
-                div.innerHTML += '<button id="button-text" class="button-text" onclick="userbutton(' + i + ')">' + data[i] + '</button>'
+                div.innerHTML += '<button id="button-text" class="button-text" onclick=\'userbutton("' + data[i] + '")\'>' + data[i] + '</button>'
+
                 i++
             }
 
         }
     })
     .catch(error => {
-        document.getElementById('task-list').textContent = "Fehler beim Laden der User.";
+        document.getElementById('task-list').textContent = "Failed to load user.";
         console.error(error);
     });
 
 
 
-function userbutton(element) {
-  if (element == "1") {
-    // console.log("David: ", David);
-    window.location.href = "./../david/main.html";
-  }
-  if (element == "2") {
-    // console.log("Silvan: ", Silvan);
-    fetch("http://localhost:3000/api/admin/load")
-  }
-  if (element == "3") {
-    // console.log("Manuel: ", Manuel);
-  }
+async function userbutton(element) {
+  let response = await fetch(basedomain + "/api/temp/set/" + element);  let data = await response.text();
+  console.log(data + ":" + element);
+  window.location.href = (basedomain + "/user");
+}
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

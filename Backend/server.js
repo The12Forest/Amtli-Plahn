@@ -4,6 +4,8 @@ import {router as gamingtimeRouter} from "./routes/gamingtime/index.js"
 import {router as tasksRouter} from "./routes/tasks/index.js"
 import {router as userRouter} from "./routes/user/index.js"
 import {router as adminRouter} from "./routes/admin/index.js"
+import {router as tempRouter} from "./routes/temp/index.js"
+
 
 const app = express()
 const port = 3000
@@ -18,6 +20,8 @@ app.use("/api/time", gamingtimeRouter)
 app.use("/api/task", tasksRouter)
 app.use("/api/user", userRouter)
 app.use("/api/admin", adminRouter)
+app.use("/api/temp", tempRouter)
+
 
 
 // app.use("/api", saveRouter)

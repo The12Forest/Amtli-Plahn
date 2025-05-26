@@ -4,7 +4,7 @@ html, body {
 }
 
 .Head {
-  background-color: #212121; /* YouTube dark bar */
+  background-color: #212121;
   color: white;
   position: fixed;
   top: 0;
@@ -57,8 +57,8 @@ h1 {
 }
 
 .tasks, .tasks-button {
-  flex: 1 1 45%; /* Items können wachsen und schrumpfen, aber Basis ist 45% */
-  margin: 2.5%;  /* Abstand, damit nicht alles klebt */
+  flex: 1 1 45%;
+  margin: 2.5%; 
   box-sizing: border-box;
 }
 .tasks-div {

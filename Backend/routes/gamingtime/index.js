@@ -1,19 +1,19 @@
 import express from "express"
-const router = express.Router()
 import fs from 'fs';
+const router = express.Router()
 const logprefix = "GamingRouter:    "
 let time = []
 
 
 router.use("/save", (req, res) => {
   let buffer = JSON.stringify(time)
-  fs.writeFileSync("./saves/time.json", buffer)
+  fs.writeFileSync("./Backend/saves/time.json", buffer)
   console.log(logprefix + "Settings saved: " + buffer)
   res.json(buffer)
 })
 
 router.use("/load", (req, res) => {
-  time = JSON.parse(fs.readFileSync("./saves/time.json"))
+  time = JSON.parse(fs.readFileSync("./Backend/saves/time.json"))
   console.log(logprefix + "Times loaded:  "+ time)
   res.json(time)
 })
@@ -46,7 +46,7 @@ router.use("/:userName", (req, res) => {
   } else {
     res.status(404).json({"ok": false, "username": req.params.userName, "time": "UserNotFound"})
   }
-  
+  console.log(logprefix + "User: " + req.params.userName + "Time:" + time[usertime])
 })
 
 
