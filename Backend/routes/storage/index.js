@@ -8,6 +8,7 @@ router.use("/save", (req, res) => {
     fetch(baseurl + "/api/task/save")
     fetch(baseurl + "/api/user/save")
     fetch(baseurl + "/api/time/save")
+    fetch(baseurl + "/api/login/save")
     res.send("All data saved.")
 })
 
@@ -16,6 +17,7 @@ router.use("/load", (req, res) => {
     fetch(baseurl + "/api/task/load")
     fetch(baseurl + "/api/user/load")
     fetch(baseurl + "/api/time/load")
+    fetch(baseurl + "/api/login/load")
     res.send("All data loaded.")
 })
 

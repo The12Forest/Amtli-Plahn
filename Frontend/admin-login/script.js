@@ -14,13 +14,16 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
 
   const combined = `${username}:${password}`;
   const hash = await sha256(combined);
-  
-  try {
-    const response = await fetch(baseurl + "/api/login/" + hash + "/");
-    const data = await response.json();
 
-    if (data.ok && data.login) {
-      window.location.href = "/admin-panel.html";
+  try {
+    // Statt JSON bekommst du nun HTML zurück
+    const response = await fetch(baseurl + "/api/login/" + hash + "/");
+
+    if (response.ok) {
+      const html = await response.text();
+      document.open();   
+      document.write(html);    
+      document.close();
     } else {
       alert("Zugang verweigert");
     }

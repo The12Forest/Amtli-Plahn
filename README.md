@@ -10,3 +10,5 @@ Features:
 - Time stop for a Task
 - Del Users
 - Admin Portal
+- Admin password reset
+- Del admin account exept for the last one
