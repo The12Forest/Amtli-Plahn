@@ -48,5 +48,5 @@ app.get('/Main', (req, res) => {res.redirect('/')});
 
 app.use("", (req, res) => {res.redirect('/')})
 
-console.log("done")
+
 export default app
