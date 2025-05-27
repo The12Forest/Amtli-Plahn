@@ -1,11 +1,46 @@
 footer {
+  display: flex;
+  position: relative;
+  background: #6d6d6d;
+  color: white;
+  padding: 25px;
+  margin-top: 60px;
+  align-items: center;
+}
+
+#footer-admin-button {
+  position: absolute;
+  left: 20px;
+  background-color: #7700ff;
+  border: none;
+  border-radius: 5%;
+  padding: 10px;
+}
+
+#footer-admin-button:hover {
+  background-color: #4b00a0;
+}
+
+.footer-center {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+#footer-text {
+  margin: 0;
+}
+
+
+
+
+/*
   background: #6d6d6d;
   color: white;
   text-align: center;
   padding: 10px;
-  /* border-radius: 10px; */
   margin-top: 60px;
-}
+*/
 
 
 .button-text {

@@ -27,14 +27,12 @@ router.use("/:userName/:time", (req, res) => {
     time.push("0")
     usertime = time.indexOf(req.params.userName)
     usertime = parseInt(usertime)
+    console.log(logprefix + "User " + req.params.userName + " created.")
   }
   usertime = usertime + 1
   time[usertime] = String(parseInt(time[usertime]) + parseInt(req.params.time))
   res.status(200).json({"ok": true, "username": req.params.userName, "time": time[usertime]})
-
-  console.log(logprefix + "UserID        : " + (usertime - 1))
-  console.log(logprefix + "Usertime added: " + req.params.time)
-  console.log(logprefix + "Usertime now  : " + time[usertime])
+  console.log(logprefix + "Time update: User "+ req.params.userName + " to " + time[usertime])
 })
 
 router.use("/:userName", (req, res) => {
@@ -43,10 +41,11 @@ router.use("/:userName", (req, res) => {
   if (usertime !== -1) {
     usertime = usertime + 1
     res.status(200).json({"ok": true, "username": req.params.userName, "time": time[usertime]})
+    console.log(logprefix + "Searched for UserTime User: " + req.params.userName + "Time:" + time[usertime])
   } else {
     res.status(404).json({"ok": false, "username": req.params.userName, "time": "UserNotFound"})
+    console.log(logprefix + "Searched for UserTime User: " + req.params.userName + " but he doesn't exist")
   }
-  console.log(logprefix + "User: " + req.params.userName + "Time:" + time[usertime])
 })
 
 

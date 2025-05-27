@@ -3,7 +3,7 @@ import express from "express"
 import cron from 'node-cron';
 import fs from 'fs';
 const router = express.Router()
-const baseurl = "http://127.0.0.1:3000"
+const baseurl = "http://127.0.0.1:2007"
 const logprefix = "TaskRouter:      "
 let tasks = []
 let users = []
@@ -27,38 +27,22 @@ router.use("/load", (req, res) => {
 router.use("/adduser/:user", (req, res) => {
   if (users.indexOf(req.params.user) !== -1) {
     res.send("User already exists.")
-    console.log(logprefix + "User already exists.")
+    console.log(logprefix + "Tried to register user:  already exists.")   
   } else {  
     users.push(req.params.user)
     tasks.push([])
-    res.json({"user added": req.params.user})
-    console.log(logprefix + "user added: " + req.params.user + ".")
-  }  
+    console.log(logprefix + "Added user: " + req.params.user)
+    res.json({"user added": req.params.user})  }  
 })
-
-// router.use("/start/:task", (req, res) => {
-//   console.log(JSON.stringify(req.params.task))
-//   console.log(JSON.stringify(req.params))
-
-//   res.send(req.params.task)
-// })
-
-// router.use("/stop/:task", (req, res) => {
-//   console.log(JSON.stringify(req.params.task))
-//   console.log(JSON.stringify(req.params))
-
-//   res.send(req.params.task)
-// })
-
 
 router.get("/create/:user/:task/", (req, res) => {
   let userid = users.indexOf(req.params.user)
   if (userid !== -1) {
     tasks[userid].push(req.params.task)
-    console.log(logprefix + "Creating task: Tasks of user: " + req.params.user + " Task: " + tasks[userid])
+    console.log(logprefix + "Creating task: " + req.params.task + " for user: " + req.params.user)
     res.send(tasks)
   } else {
-    console.log(logprefix + "Creating task: User dose not exist.")
+    console.log(logprefix + "Creating task: But the user: " + req.params.user + " dose not exist.")
     res.send("User dose not exist.")
   }
 })
@@ -105,7 +89,8 @@ router.get("/all/:user/", (req, res) => {
     res.json(tasks[userid])
     console.log(logprefix + "Searched for tasks of user: " + req.params.user + " and the tasks where " + tasks[userid])
   } else {
-    res.send(logprefix + "Searched for tasks of user: " + req.params.user + " but the user didn't exist.")
+    console.log(logprefix + "Searched for tasks of user: " + req.params.user + " but the user didn't exist.")
+    res.send("User doesn’t exist.")
   }
 })
 

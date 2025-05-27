@@ -1,4 +1,6 @@
-let basedomain = "http://localhost:3000"
+// let basedomain = "http://server5.techsvc.de:2007"
+let basedomain = "http://localhost:2007"
+
 
 fetch(basedomain + "/api/user/all")
     .then(response => response.json())
@@ -27,6 +29,10 @@ fetch(basedomain + "/api/user/all")
         console.error(error);
     });
 
+
+async function adminbutton() {
+    window.location.href = (basedomain + "/admin");
+}
 
 
 async function userbutton(element) {

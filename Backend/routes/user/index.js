@@ -3,7 +3,7 @@ const router = express.Router()
 import fs from 'fs';
 let user = []
 const logprefix =  "UserRouter:      "
-const baseurl = "http://127.0.0.1:3000"
+const baseurl = "http://127.0.0.1:2007"
 
 
 
@@ -42,3 +42,6 @@ router.use("/all", (req, res) => {
 
 router.use("", (req, res) => res.status(404).json({error: "not found"}))
 export {router}
+
+
+fetch(baseurl + "/api/storage/load")
