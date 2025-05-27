@@ -1,4 +1,5 @@
-let baseurl = "http://localhost:2007"
+let baseurl = "http://server5.techsvc.de:2007"
+// let baseurl = "http://localhost:2007"
 
 
 document.querySelector(".login-form").addEventListener("submit", async (e) => {
