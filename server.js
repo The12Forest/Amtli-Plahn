@@ -46,7 +46,7 @@ app.use("/api/login", loginRouter)
 
 app.get('/Main', (req, res) => {res.redirect('/')});
 
-app.use("*", (req, res) => {res.redirect('/')})
+app.use("", (req, res) => {res.redirect('/')})
 
 
 export default app
