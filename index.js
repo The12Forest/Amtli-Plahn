@@ -4,6 +4,10 @@ import fs from 'fs';
 import https from 'https';
 import http from 'http';
 import { fileURLToPath } from 'url';
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+
+
+
 
 //Router Laden
 import {router as gamingtimeRouter} from "./Backend/routes/gamingtime/index.js"
