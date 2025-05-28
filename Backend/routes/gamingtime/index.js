@@ -41,7 +41,7 @@ router.use("/:userName", (req, res) => {
   if (usertime !== -1) {
     usertime = usertime + 1
     res.status(200).json({"ok": true, "username": req.params.userName, "time": time[usertime]})
-    console.log(logprefix + "Searched for UserTime User: " + req.params.userName + "Time:" + time[usertime])
+    console.log(logprefix + "Searched for UserTime User: " + req.params.userName + " Time: " + time[usertime])
   } else {
     res.status(404).json({"ok": false, "username": req.params.userName, "time": "UserNotFound"})
     console.log(logprefix + "Searched for UserTime User: " + req.params.userName + " but he doesn't exist")

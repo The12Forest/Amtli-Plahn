@@ -3,9 +3,9 @@ import fs from 'fs';
 import path from "path";
 import { fileURLToPath } from "url";
 const router = express.Router()
-// const baseurl = "https://127.0.0.1:2007"
 const logprefix = "LoginRouter:     "
-const adminPanelPath = "../../../Frontend/admin/main.html"
+const adminPanelDir = "../../../Frontend/admin";
+const adminPanelPath = path.join(adminPanelDir, "main.html");
 let passwords = []
 
 const __filename = fileURLToPath(import.meta.url);
@@ -66,11 +66,10 @@ router.get("/update/:passwdold/:passwd", (req, res) => {
 
 
 
-
 router.get("/:passwd", (req, res) => {
   let passwdIndex = passwords.indexOf(req.params.passwd);
   
-  if (passwdIndex !== -1) {
+  if (passwdIndex == -1) {
     console.log(logprefix + "Admin user: " + passwdIndex + " logged in.");
     res.sendFile(path.resolve(__dirname, adminPanelPath));
   } else {
@@ -79,7 +78,16 @@ router.get("/:passwd", (req, res) => {
   }
 });
 
+router.get("/assets/style.css", (req, res) => {
+  res.sendFile(path.resolve(__dirname, path.join(adminPanelDir, "style.css")));
+});
 
+router.get("/assets/script.js", (req, res) => {
+  res.sendFile(path.resolve(__dirname, path.join(adminPanelDir, "script.js")));
+});
+
+
+//!JS wird nicht gesendet
 
 
 export { router }

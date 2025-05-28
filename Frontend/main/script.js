@@ -1,5 +1,5 @@
-let basedomain = "https://server5.techsvc.de:2007"
-// let basedomain = "https://localhost:2007"
+// let basedomain = "https://server5.techsvc.de:2007"
+let basedomain = "https://localhost:2007"
 
 
 fetch(basedomain + "/api/user/all")
@@ -15,10 +15,8 @@ fetch(basedomain + "/api/user/all")
             let i = 0
             div.innerHTML = ""
             while (i < data.length) {
-                console.log(data[i])
-                console.log(i)
-                div.innerHTML += '<button id="button-text" class="button-text" onclick=\'userbutton("' + data[i] + '")\'>' + data[i] + '</button>'
-
+                UserNameUppercase = data[i].charAt(0).toUpperCase() + data[i].slice(1);
+                div.innerHTML += '<button id="button-text" class="button-text" onclick=\'userbutton("' + data[i] + '")\'>' + UserNameUppercase + '</button>'
                 i++
             }
 

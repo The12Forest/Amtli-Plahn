@@ -1,40 +1,34 @@
-let baseurl = "https://server5.techsvc.de:2007"
+// let baseurl = "https://server5.techsvc.de:2007"
 // let baseurl = "https://localhost:2007"
 
 
-document.querySelector(".login-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
 
-  const username = e.target[0].value.trim();
-  const password = e.target[1].value;
-
-  if (!username || !password) {
-    alert("Bitte Benutzername und Passwort eingeben.");
-    return;
-  }
-
-  const combined = `${username}:${password}`;
-  const hash = await sha256(combined);
-  
+async function populateDropdown() {
   try {
-    const response = await fetch(baseurl + "/api/login/" + hash + "/");
-    const data = await response.json();
+    const response = await fetch(baseurl + "/api/user/all"); 
+    const names = await response.json(); 
+    const dropdown = document.getElementById('userselect');
+    dropdown.innerHTML = '';
 
-    if (data.ok && data.login) {
-      window.location.href = "/admin-panel.html";
-    } else {
-      alert("Zugang verweigert");
-    }
+    names.forEach(name => {
+      const option = document.createElement('option');
+      option.value = name;
+      option.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      dropdown.appendChild(option);
+    });
   } catch (error) {
-    console.error("Fehler beim Login:", error);
-    alert("Login fehlgeschlagen.");
+    console.error('Error fetching dropdown data:', error);
   }
-});
-
-async function sha256(message) {
-  const msgBuffer = new TextEncoder().encode(message);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-  return hashHex;
 }
+
+async function adduser() {
+  const dropdown = document.getElementById('userselect');
+  const username = dropdown.value;
+  const textarea = document.getElementById("Taskname-create");
+  const taskname = textarea.value;
+  fetch(baseurl + "/api/task/create/" + username + "/" + taskname + "/")
+  
+}
+
+populateDropdown();
+
