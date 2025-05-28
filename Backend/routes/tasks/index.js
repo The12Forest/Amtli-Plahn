@@ -99,7 +99,7 @@ router.get("/all/:user/", (req, res) => {
 cron.schedule('0 0 * * *', () => {
   console.log("Es ist 00:00 Uhr!");
   console.log("Reset tasks")
-  tasks = JSON.parse(fs.readFileSync("./saves/tasks.json"))
+  fetch(baseurl + "/api/task/load")
   console.log(logprefix + "Tasks loaded:  " + tasks)
 });
 
