@@ -23,7 +23,7 @@ const httpPort = 80;
 const httpsPort = 2007;
 
 // SSL-Zertifikate laden
-const certPath = path.join(__dirname, 'cert');
+const certPath = path.join(__dirname, 'Cert');
 const privateKey = fs.readFileSync(path.join(certPath, 'key.pem'), 'utf8');
 const certificate = fs.readFileSync(path.join(certPath, 'cert.pem'), 'utf8');
 const credentials = { key: privateKey, cert: certificate };
