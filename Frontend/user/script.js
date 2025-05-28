@@ -1,6 +1,6 @@
 let userName
-// let basedomain = "https://server5.techsvc.de:2007"
-let basedomain = "https://localhost:2007"
+let basedomain = "https://server5.techsvc.de:2007"
+// let basedomain = "https://localhost:2007"
 
 
 fetch(basedomain + "/api/temp/get")
