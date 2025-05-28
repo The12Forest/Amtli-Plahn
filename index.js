@@ -19,8 +19,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //Ports Definieren
-const httpPort = 2007;
-const httpsPort = 443;
+const httpPort = 80;
+const httpsPort = 2007;
 
 // SSL-Zertifikate laden
 const privateKey = fs.readFileSync('./cert/key.pem', 'utf8');
