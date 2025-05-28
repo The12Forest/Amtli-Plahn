@@ -65,7 +65,6 @@ fetch(basedomain + "/api/temp/get")
 
 async function userbutton(task) {
     fetch(basedomain + "/api/task/done/" + userName + "/" + task)
-    // location.reload(true);
     reloadtask()
 }
 

@@ -2,6 +2,7 @@ import express from "express"
 // import bodyParser from "body-parser";
 import cron from 'node-cron';
 import fs from 'fs';
+import { userInfo } from "os";
 const router = express.Router()
 const baseurl = "http://127.0.0.1"
 const logprefix = "TaskRouter:      "
@@ -33,6 +34,19 @@ router.use("/adduser/:user", (req, res) => {
     tasks.push([])
     console.log(logprefix + "Added user: " + req.params.user)
     res.json({"user added": req.params.user})  }  
+})
+
+router.use("/deluser/:user", (req, res) => {
+  let userID =users.indexOf(req.params.user)
+  if (users.indexOf(req.params.user) == -1) {
+    res.send("User " + req.params.user + " dose not exists.")
+    console.log(logprefix + "Delete user: User " + req.params.user + " dose not exists.")
+  } else {
+    users.splice(userID, 1)
+    tasks.splice(userID, 1)
+    res.send("User was deleted.")
+    console.log(logprefix + "User deleted: " + req.params.user)
+  }
 })
 
 router.get("/create/:user/:task/", (req, res) => {

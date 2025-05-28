@@ -18,6 +18,18 @@ router.use("/load", (req, res) => {
   res.json(time)
 })
 
+router.use("/deluser/:user", (req, res) => {
+  let userID = time.indexOf(req.params.user)
+  if (time.indexOf(req.params.user) == -1) {
+    res.send("User " + req.params.user + " dose not exists.")
+    console.log(logprefix + "Delete user: User " + req.params.user + " dose not exists.")
+  } else {
+    time.splice(userID, 2)
+    res.send("User was deleted.")
+    console.log(logprefix + "User deleted: " + req.params.user)
+  }
+})
+
 
 router.use("/:userName/:time", (req, res) => {
   let usertime = time.indexOf(req.params.userName)
@@ -47,6 +59,8 @@ router.use("/:userName", (req, res) => {
     console.log(logprefix + "Searched for UserTime User: " + req.params.userName + " but he doesn't exist")
   }
 })
+
+
 
 
 
