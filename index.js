@@ -4,7 +4,8 @@ import fs from 'fs';
 import https from 'https';
 import http from 'http';
 import { fileURLToPath } from 'url';
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+
+const baseurl = "http://127.0.0.1"
 
 
 
@@ -73,4 +74,6 @@ https.createServer(credentials, app).listen(httpsPort, () => {
   console.log(`HTTPS server running on port ${httpsPort}`);
 });
 
+
+fetch(baseurl + "/api/storage/load")
 export default app
