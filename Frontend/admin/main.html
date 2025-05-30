@@ -7,12 +7,98 @@
     <link rel="stylesheet" href="/api/login/assets/style.css">
   </head>
   <body>
-    <textarea id="Taskname-create"></textarea>
-    <button onclick="adduser()" id="Submit-Task-Button">Submit</button>
-    <select id="userselect">
-      <option>Loading...</option>
-    </select>
-    
+    <button onclick="loadsetting()" id="loadsettingbutton">Load Default Settings</button>
+    <button onclick="savesetting()" id="savesettingbutton">Save as Default Setting</button>
+    <div class="Tasks">
+      <div class="TaskCreate">
+        <label for="Taskname-create">TaskCreate:</label>
+        <input type="text" id="Taskname-create" placeholder="Neue Aufgabe" />
+        
+        <label for="UserSelectCreate">Benutzer:</label>
+        <select class="UserSelect" id="UserSelectTaskCreate">
+          <option>Loading...</option>
+        </select>
+
+        <button onclick="createTask()" id="Submit-Task-Button">Submit</button>
+      </div>
+
+      <div class="TaskDelete" id="TaskDelete">
+        <label for="UserSelectTaskDelete">Benutzer:</label>
+
+        <select class="UserSelect" id="UserSelectTaskDelete">
+          <option>Loading...</option>
+        </select>
+
+        <select class="TaskSelectDel" id="TaskSelectDel">
+          <option>Loading...</option>
+        </select>
+
+        <button onclick="deleteTask()">Löschen</button>
+      </div>
+    </div>
+
+
+      <div class="Time">
+        <div class="SetTime">
+          <label for="UserSelectTimeSet">Benutzer:</label>
+          <select id="UserSelectTimeSet" class="UserSelect">
+            <option>Loading...</option>
+          </select>
+
+          <input type="number" id="TimeSetInput" placeholder="Zeit in Minuten" />
+
+          <button onclick="setTime()">Zeit setzen</button>
+        </div>
+
+        <div class="ADDTime">
+          <label for="UserSelectTimeAdd">Benutzer:</label>
+
+          <select id="UserSelectTimeAdd" class="UserSelect">
+            <option>Loading...</option>
+          </select>
+
+          <input type="number" id="TimeAddInput" placeholder="Zeit in Minuten" />
+
+          <button onclick="addTime()">Zeit hinzufügen</button>
+        </div>
+      </div>
+
+      <div class="Usermanagement">
+        <div class="AddUser">
+          <input type="text" id="AddUserInput" placeholder="Benutzername" />
+          <button onclick="addUser()">Hinzufügen</button>
+        </div>
+
+        <div class="DelUser">
+          <select id="DelUserInput" class="UserSelect">
+            <option>Loading...</option>
+          </select>
+          <button onclick="delUser()">Benutzer löschen</button>
+        </div>
+      </div>
+
+      <div class="AdminManagement">
+        <div class="ChangePassWD">
+          <input type="text" id="AdminUsername" placeholder="Benutzername" />
+          <input type="password" id="OldPassword" placeholder="Altes Passwort" />
+          <input type="password" id="NewPassword1" placeholder="Neues Passwort" />
+          <input type="password" id="NewPassword2" placeholder="Neues Passwort bestätigen" />
+          <button onclick="changePasswd()">Passwort ändern</button>
+        </div>
+
+        <div class="AddNewAdminUser">
+          <input type="text" id="NewAdminUser" placeholder="Neuer Admin-Name" />
+          <input type="password" id="NewAdminPass" placeholder="Passwort" />
+          <button onclick="addAdmin()">Admin hinzufügen</button>
+        </div>
+
+        <div class="DelAdminUser">
+          <input type="text" id="DelAdminName" placeholder="Admin-Name" />
+          <input type="password" id="DelAdminPass" placeholder="Passwort" />
+          <button onclick=" delAdmin()">Admin löschen</button>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="/api/login/assets/script.js" defer></script>
 </html>

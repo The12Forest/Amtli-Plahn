@@ -30,6 +30,22 @@ router.use("/deluser/:user", (req, res) => {
   }
 })
 
+router.use("/set/:userName/:time", (req, res) => {
+  let usertime = time.indexOf(req.params.userName)
+  usertime = parseInt(usertime)
+  if (usertime == -1) {
+    time.push(req.params.userName)
+    time.push(req.params.time)
+    usertime = time.indexOf(req.params.userName)
+    usertime = parseInt(usertime)
+    console.log(logprefix + "User " + req.params.userName + " created.")
+  }
+  usertime = usertime + 1
+  time[usertime] = req.params.time
+  res.status(200).json({"ok": true, "username": req.params.userName, "time": time[usertime]})
+  console.log(logprefix + "Time update: User "+ req.params.userName + " to " + time[usertime])
+})
+
 
 router.use("/:userName/:time", (req, res) => {
   let usertime = time.indexOf(req.params.userName)
@@ -65,4 +81,5 @@ router.use("/:userName", (req, res) => {
 
 
 router.use("", (req, res) => res.status(404).json({error: "not found"}))
+
 export {router}

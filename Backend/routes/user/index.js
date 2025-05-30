@@ -56,4 +56,5 @@ router.use("/all", (req, res) => {
 
 
 router.use("", (req, res) => res.status(404).json({error: "not found"}))
+
 export {router}

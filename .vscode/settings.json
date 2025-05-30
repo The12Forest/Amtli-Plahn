@@ -9,7 +9,8 @@
         "taskid",
         "timeadd",
         "userbutton",
-        "usertime"
+        "usertime",
+        "deluser"
     ],
     "cSpell.words": [
         "Rechte",

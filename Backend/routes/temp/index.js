@@ -15,6 +15,6 @@ router.use("/get", (req, res) => {
   res.json({"ok": true, "set": temp})
 })
 
-
+router.use("", (req, res) => res.status(404).json({error: "not found"}))
 
 export { router }

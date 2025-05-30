@@ -117,8 +117,6 @@ cron.schedule('0 0 * * *', () => {
   console.log(logprefix + "Tasks loaded:  " + tasks)
 });
 
-
-
+router.use("", (req, res) => res.status(404).json({error: "not found"}))
 
 export { router }
-// task[user.indexOf(req.params.user)][task.indexOf[user.indexOf(req.params.user)](0)]

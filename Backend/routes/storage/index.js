@@ -26,5 +26,11 @@ router.use("/space", (req, res) => {
     res.send("Space in log created.")
 })
 
+router.use("/log/:logmessage", (req, res) => {
+    console.log(logprefix + req.params.logmessage)
+    res.send("Added message to log.")
+})
+
 router.use("", (req, res) => res.status(404).json({error: "not found"}))
+
 export {router}

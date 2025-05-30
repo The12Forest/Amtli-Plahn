@@ -11,7 +11,7 @@ const baseurl = "http://127.0.0.1"
 
 
 //Router Laden
-import {router as gamingtimeRouter} from "./Backend/routes/gamingtime/index.js"
+import {router as gamingtimeRouter} from "./Backend/routes/time/index.js"
 import {router as tasksRouter} from "./Backend/routes/tasks/index.js"
 import {router as userRouter} from "./Backend/routes/user/index.js"
 import {router as adminRouter} from "./Backend/routes/storage/index.js"

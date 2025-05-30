@@ -22,7 +22,7 @@ router.use("/save", (req, res) => {
 
 router.use("/load", (req, res) => {
   passwords = JSON.parse(fs.readFileSync("./Backend/saves/passwords.json"))
-//   console.log(logprefix + "Passwords loaded:  " + passwords)
+   console.log(logprefix + "Passwords loaded:  " + passwords)
   console.log(logprefix + "Passwords loaded:  " + '"Hidden"')
   res.send("Passwords loaded")  
 })
@@ -59,7 +59,7 @@ router.get("/update/:passwdold/:passwd", (req, res) => {
     res.send("Password was not updated because it does not exist.")
   } else { 
     console.log(logprefix + "Updating password from user: " + passwords.indexOf(req.params.passwd))
-    passwords[passwd] = req.params.passwd
+    passwords[userid] = req.params.passwd
     res.send("Password updated successfully.")
   }
 })
@@ -69,7 +69,7 @@ router.get("/update/:passwdold/:passwd", (req, res) => {
 router.get("/:passwd", (req, res) => {
   let passwdIndex = passwords.indexOf(req.params.passwd);
   
-  if (passwdIndex == -1) {
+  if (passwdIndex !== -1) {
     console.log(logprefix + "Admin user: " + passwdIndex + " logged in.");
     res.sendFile(path.resolve(__dirname, adminPanelPath));
   } else {
@@ -87,7 +87,7 @@ router.get("/assets/script.js", (req, res) => {
 });
 
 
-//!JS wird nicht gesendet
+router.use("", (req, res) => res.status(404).json({error: "not found"}))
 
 
 export { router }
