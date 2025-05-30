@@ -84,3 +84,26 @@ label {
   max-width: 300px;
   margin: 0.5rem 0;
 }
+
+
+.feedback-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 1000;
+}
+
+.feedback-message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+

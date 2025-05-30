@@ -39,6 +39,14 @@ async function populatetask(selectedValue) {
   } 
 }
 
+async function timesetupdate(user, element) {
+  const response = await fetch(baseurl + "/api/time/" + user);
+  const data = await response.json();
+  const time = data.time;
+  const input = document.getElementById(element);
+  input.placeholder = `Time now ${time} in min.`; 
+}
+
 
 async function createTask() {
   const userDropdown = document.getElementById('UserSelectTaskCreate');
@@ -47,8 +55,10 @@ async function createTask() {
   const taskname = text.value;
   try {
     await fetch(baseurl + "/api/task/create/" + username + "/" + encodeURIComponent(taskname));
+    showFeedback("Task created successfully!", true);
   } catch (error) {
     console.error("Error creating task:", error);
+    showFeedback("Failed to create task!", false);
   }
   populatetask(document.getElementById("UserSelectTaskDelete").value)
 }
@@ -61,25 +71,22 @@ async function deleteTask() {
   const taskname = taskDropdown.value;
   try {
     await fetch(baseurl + "/api/task/del/" + username + "/" + taskname);
+    showFeedback("Task successfully deleted!", true);
   } catch (error) {
     console.error("Error deleting task:", error);
+    showFeedback("Failed to delete task!", false);
   }
   populatetask(document.getElementById("UserSelectTaskDelete").value)
-}
-
-
-async function timesetupdate(user, element) {
-  const response = await fetch(baseurl + "/api/time/" + user);
-  const data = await response.json();
-  const time = data.time;
-  const input = document.getElementById(element);
-  input.placeholder = `Time now ${time} in min.`; 
 }
 
 async function setTime() {
   user = document.getElementById("UserSelectTimeSet").value
   time = document.getElementById("TimeSetInput").value
-  await fetch(baseurl + "/api/time/set/" + user + "/" + time);
+  if (await fetch(baseurl + "/api/time/set/" + user + "/" + time)) {
+    showFeedback("Time set successfully!", ture)
+  } else {
+    showFeedback("Failed to set Time!", flase)
+  }
   timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
   timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
 }
@@ -87,20 +94,32 @@ async function setTime() {
 async function addTime() {
   user = document.getElementById("UserSelectTimeAdd").value
   time = document.getElementById("TimeAddInput").value
-  await fetch(baseurl + "/api/time/" + user + "/" + time);
+  if (await fetch(baseurl + "/api/time/" + user + "/" + time)) {
+    showFeedback("Time added successfully!", ture)
+  } else {
+    showFeedback("Failed to add time!", flase)
+  }
   timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
   timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
 }
 
 async function addUser() {
   user = document.getElementById("AddUserInput").value
-  await fetch(baseurl + "/api/user/add/" + user);
+  if (await fetch(baseurl + "/api/user/add/" + user)) {
+    showFeedback("User added successfully!", ture)
+  } else {
+    showFeedback("Failed to add user!", flase)
+  }
   populateDropdownUser()
 }
 
 async function delUser() {
   user = document.getElementById("DelUserInput").value
-  await fetch(baseurl + "/api/user/del/" + user);
+  if (await fetch(baseurl + "/api/user/del/" + user)) {
+    showFeedback("User successfully deleted!", ture)
+  } else {
+    showFeedback("Failed to delete user!", flase)
+  }
   populateDropdownUser()
 }
 
@@ -125,7 +144,11 @@ async function changePasswd() {
   let combinednew = `${usernameold}:${passwordnew1}`;
   let hashold = await sha256(combinedold);
   let hashnew = await sha256(combinednew);
-  await fetch(baseurl + "/api/login/update/" + hashold + "/" + hashnew);
+  if (await fetch(baseurl + "/api/login/update/" + hashold + "/" + hashnew)) {
+    showFeedback("Admin passwd successfully updated!", ture)
+  } else {
+    showFeedback("Failed to update admin passwd!", flase)
+  }
 }
 
 async function addAdmin() {
@@ -141,7 +164,11 @@ async function addAdmin() {
   let combinednew = `${username}:${passwd}`;
   let hashnewuser = await sha256(combinednew);
 
-  await fetch(baseurl + "/api/login/create/" + hashnewuser);
+  if (await fetch(baseurl + "/api/login/create/" + hashnewuser)) {
+    showFeedback("Admin user successfully added!", ture)
+  } else {
+    showFeedback("Failed to add admin user!", flase)
+  }
 }
 
 
@@ -157,16 +184,41 @@ async function delAdmin() {
   let combineddel = `${username}:${passwd}`;
   let hashdeluser = await sha256(combineddel);
 
-  await fetch(baseurl + "/api/login/create/" + hashdeluser);
+  if (  await fetch(baseurl + "/api/login/create/" + hashdeluser)) {
+    showFeedback("Admin user successfully deleted!", ture)
+  } else {
+    showFeedback("Failed to delete admin user!", flase)
+  }
+}
+
+function showFeedback(message, isSuccess = true) {
+  const feedback = document.getElementById("feedback");
+  feedback.textContent = message;
+  feedback.style.backgroundColor = isSuccess ? "#4CAF50" : "#f44336";
+  feedback.style.opacity = "1";
+  feedback.style.transform = "translateY(0)";
+
+  setTimeout(() => {
+    feedback.style.opacity = "0";
+    feedback.style.transform = "translateY(20px)";
+  }, 3000);
 }
 
 async function loadsetting() {
-  await fetch(baseurl + "/api/storage/load")
+  if (await fetch(baseurl + "/api/storage/load")) {
+    showFeedback("Settings successfully loaded!", ture)
+  } else {
+    showFeedback("Failed to load settings!", flase)
+  }
   populateDropdownUser()
 }
 
 async function savesetting() {
-  await fetch(baseurl + "/api/storage/save")
+  if (  await fetch(baseurl + "/api/storage/save")) {
+    showFeedback("Settings successfully saved!", ture)
+  } else {
+    showFeedback("Failed to save settings!", flase)
+  }
 }
 
 document.getElementById("UserSelectTaskDelete").addEventListener("change", function () {
