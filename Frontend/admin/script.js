@@ -83,9 +83,9 @@ async function setTime() {
   user = document.getElementById("UserSelectTimeSet").value
   time = document.getElementById("TimeSetInput").value
   if (await fetch(baseurl + "/api/time/set/" + user + "/" + time)) {
-    showFeedback("Time set successfully!", ture)
+    showFeedback("Time set successfully!", true)
   } else {
-    showFeedback("Failed to set Time!", flase)
+    showFeedback("Failed to set Time!", false)
   }
   timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
   timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
@@ -95,9 +95,9 @@ async function addTime() {
   user = document.getElementById("UserSelectTimeAdd").value
   time = document.getElementById("TimeAddInput").value
   if (await fetch(baseurl + "/api/time/" + user + "/" + time)) {
-    showFeedback("Time added successfully!", ture)
+    showFeedback("Time added successfully!", true)
   } else {
-    showFeedback("Failed to add time!", flase)
+    showFeedback("Failed to add time!", false)
   }
   timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
   timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
@@ -106,9 +106,9 @@ async function addTime() {
 async function addUser() {
   user = document.getElementById("AddUserInput").value
   if (await fetch(baseurl + "/api/user/add/" + user)) {
-    showFeedback("User added successfully!", ture)
+    showFeedback("User added successfully!", true)
   } else {
-    showFeedback("Failed to add user!", flase)
+    showFeedback("Failed to add user!", false)
   }
   populateDropdownUser()
 }
@@ -116,9 +116,9 @@ async function addUser() {
 async function delUser() {
   user = document.getElementById("DelUserInput").value
   if (await fetch(baseurl + "/api/user/del/" + user)) {
-    showFeedback("User successfully deleted!", ture)
+    showFeedback("User successfully deleted!", true)
   } else {
-    showFeedback("Failed to delete user!", flase)
+    showFeedback("Failed to delete user!", false)
   }
   populateDropdownUser()
 }
@@ -145,9 +145,9 @@ async function changePasswd() {
   let hashold = await sha256(combinedold);
   let hashnew = await sha256(combinednew);
   if (await fetch(baseurl + "/api/login/update/" + hashold + "/" + hashnew)) {
-    showFeedback("Admin passwd successfully updated!", ture)
+    showFeedback("Admin passwd successfully updated!", true)
   } else {
-    showFeedback("Failed to update admin passwd!", flase)
+    showFeedback("Failed to update admin passwd!", false)
   }
 }
 
@@ -165,9 +165,9 @@ async function addAdmin() {
   let hashnewuser = await sha256(combinednew);
 
   if (await fetch(baseurl + "/api/login/create/" + hashnewuser)) {
-    showFeedback("Admin user successfully added!", ture)
+    showFeedback("Admin user successfully added!", true)
   } else {
-    showFeedback("Failed to add admin user!", flase)
+    showFeedback("Failed to add admin user!", false)
   }
 }
 
@@ -185,9 +185,9 @@ async function delAdmin() {
   let hashdeluser = await sha256(combineddel);
 
   if (  await fetch(baseurl + "/api/login/create/" + hashdeluser)) {
-    showFeedback("Admin user successfully deleted!", ture)
+    showFeedback("Admin user successfully deleted!", true)
   } else {
-    showFeedback("Failed to delete admin user!", flase)
+    showFeedback("Failed to delete admin user!", false)
   }
 }
 
@@ -206,18 +206,18 @@ function showFeedback(message, isSuccess = true) {
 
 async function loadsetting() {
   if (await fetch(baseurl + "/api/storage/load")) {
-    showFeedback("Settings successfully loaded!", ture)
+    showFeedback("Settings successfully loaded!", true)
   } else {
-    showFeedback("Failed to load settings!", flase)
+    showFeedback("Failed to load settings!", false)
   }
   populateDropdownUser()
 }
 
 async function savesetting() {
   if (  await fetch(baseurl + "/api/storage/save")) {
-    showFeedback("Settings successfully saved!", ture)
+    showFeedback("Settings successfully saved!", true)
   } else {
-    showFeedback("Failed to save settings!", flase)
+    showFeedback("Failed to save settings!", false)
   }
 }
 
