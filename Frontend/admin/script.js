@@ -73,7 +73,7 @@ async function timesetupdate(user, element) {
   const data = await response.json();
   const time = data.time;
   const input = document.getElementById(element);
-  input.placeholder = `Time now ${time} in min.`; 
+  input.placeholder = `Time now ${time} min.`; 
 }
 
 async function setTime() {
