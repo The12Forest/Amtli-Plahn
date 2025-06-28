@@ -47,14 +47,16 @@ router.get("/create/:passwdold/:passwd", (req, res) => {
 })
 
 router.get("/delete/:passwd", (req, res) => {
-  let userid = passwords.indexOf(req.params.passwd)
-  if (userid !== -1) {
-    console.log(logprefix + "Deleting password for user: " + passwords.indexOf(req.params.passwdold))
-    passwords.splice(userid)
-    res.json({"ok": true, "successful": true})
-  } else { 
-    console.log(logprefix + "Deleting password: But the password: " + req.params.passwd + " dose not exists.")
-    res.json({"ok": false, "successful": false})  
+  if (passwords.length > 1) {
+    let userid = passwords.indexOf(req.params.passwd)
+    if (userid !== -1) {
+      console.log(logprefix + "Deleting password for user: " + passwords.indexOf(req.params.passwdold))
+      passwords.splice(userid)
+      res.json({"ok": true, "successful": true})
+    } else { 
+      console.log(logprefix + "Deleting password: But the password: " + req.params.passwd + " dose not exists.")
+      res.json({"ok": false, "successful": false})  
+    }
   }
 })
 
