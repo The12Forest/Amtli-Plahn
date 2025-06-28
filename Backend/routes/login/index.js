@@ -27,15 +27,22 @@ router.use("/load", (req, res) => {
   res.send("Passwords loaded")  
 })
 
-router.get("/create/:passwd", (req, res) => {
-  let userid = passwords.indexOf(req.params.passwd)
-  if (userid == -1) {
-    passwords.push(req.params.passwd)
-    console.log(logprefix + "Creating password for user: " + passwords.indexOf(req.params.passwdold))
-    res.send("Password was added.")
-  } else { 
-    console.log(logprefix + "Creating password: But the password: " + req.params.passwd + " already exists.")
-    res.send("Password dose already exist.")
+router.get("/create/:passwdold/:passwd", (req, res) => {
+  let passwdIndex = passwords.indexOf(req.params.passwdold);
+  
+  if (passwdIndex !== -1) {
+    let userid = passwords.indexOf(req.params.passwd)
+    if (userid == -1) {
+      passwords.push(req.params.passwd)
+      console.log(logprefix + "Creating password for user: " + passwords.indexOf(req.params.passwdold))
+      res.send("Password was added.")
+    } else { 
+      console.log(logprefix + "Creating password: But the password: " + req.params.passwd + " already exists.")
+      res.send("Password dose already exist.")
+    }
+  } else {
+    console.log(logprefix + "Admin user tried to create new Admin but the username/password was wrong.");
+    res.status(401).send("Unauthorized"); // optional: mit Statuscode
   }
 })
 

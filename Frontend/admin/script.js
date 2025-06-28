@@ -132,6 +132,8 @@ async function changePasswd() {
 }
 
 async function addAdmin() {
+  let usernamecheck = document.getElementById("CurrentAdminNameCreate").value;
+  let passwdcheck = document.getElementById("CurrentAdminPWCreate").value;
 
   let username = document.getElementById("NewAdminUser").value;
   let passwd = document.getElementById("NewAdminPass").value;
@@ -141,10 +143,16 @@ async function addAdmin() {
     return;
   }
 
+  if (!usernamecheck || !passwdcheck) {
+    alert("Bitte jetzigen Username und Passwort eingeben.");
+    return;
+  }
+  let combinedcheck = `${usernamecheck}:${passwdcheck}`;
   let combinednew = `${username}:${passwd}`;
+  let hashusercheck = await sha256(combinedcheck);
   let hashnewuser = await sha256(combinednew);
 
-  await fetch(baseurl + "/api/login/create/" + hashnewuser);
+  await fetch(baseurl + "/api/login/create/" + hashusercheck + "/" + hashnewuser);
 }
 
 

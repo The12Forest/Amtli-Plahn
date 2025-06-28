@@ -1,6 +1,6 @@
 let userName
-let basedomain = "https://server5.techsvc.de:2007"
-// let basedomain = "https://localhost:2007"
+// let basedomain = "https://server5.techsvc.de:2007"
+let basedomain = "https://localhost:2007"
 
 
 fetch(basedomain + "/api/temp/get")
@@ -64,7 +64,7 @@ fetch(basedomain + "/api/temp/get")
 
 
 async function userbutton(task) {
-    fetch(basedomain + "/api/task/done/" + userName + "/" + task)
+    fetch(basedomain + "/api/task/done/" + userName + "/" + (new Date().getDay()) + "/" + task)
     reloadtask()
 }
 
@@ -87,7 +87,7 @@ async function reloadtask() {
       });
 
 
-    fetch(basedomain + "/api/task/all/" + userName)
+    fetch(basedomain + "/api/task/all/" + userName + "/" + (new Date().getDay()))
       .then(response => response.json())
       .then(data => {
       const div = document.getElementById("task-list");

@@ -13,10 +13,8 @@
     </div>
     <div class="Tasks">
       <div class="TaskCreate">
-        <label for="Taskname-create">TaskCreate:</label>
+        <label for="Taskname-create">Task create:</label>
         <input type="text" id="Taskname-create" placeholder="Neue Aufgabe" />
-        
-        <label for="UserSelectCreate">Benutzer:</label>
         <select class="UserSelect" id="UserSelectTaskCreate">
           <option>Loading...</option>
         </select>
@@ -35,7 +33,7 @@
       </div>
 
       <div class="TaskDelete" id="TaskDelete">
-        <label for="UserSelectTaskDelete">Benutzer:</label>
+        <label for="UserSelectTaskDelete">Task delete:</label>
 
         <select class="UserSelect" id="UserSelectTaskDelete">
           <option>Loading...</option>
@@ -62,7 +60,7 @@
 
       <div class="Time">
         <div class="SetTime">
-          <label for="UserSelectTimeSet">Benutzer:</label>
+          <label for="UserSelectTimeSet">Set time:</label>
           <select id="UserSelectTimeSet" class="UserSelect">
             <option>Loading...</option>
           </select>
@@ -73,7 +71,7 @@
         </div>
 
         <div class="ADDTime">
-          <label for="UserSelectTimeAdd">Benutzer:</label>
+          <label for="UserSelectTimeAdd">Add time:</label>
 
           <select id="UserSelectTimeAdd" class="UserSelect">
             <option>Loading...</option>
@@ -86,12 +84,14 @@
       </div>
 
       <div class="Usermanagement">
-        <div class="AddUser">
+        <div class="AddUser" id="AddUserManagement">
+          <label for="AddUserManagement">Add user:</label>
           <input type="text" id="AddUserInput" placeholder="Benutzername" />
           <button onclick="addUser()">Hinzufügen</button>
         </div>
 
-        <div class="DelUser">
+        <div class="DelUser" id="DelUserManagement">
+          <label for="DelUserManagement">Delete user:</label>
           <select id="DelUserInput" class="UserSelect">
             <option>Loading...</option>
           </select>
@@ -100,7 +100,8 @@
       </div>
 
       <div class="AdminManagement">
-        <div class="ChangePassWD">
+        <div class="ChangePassWD" id="ChangePassWDAdmin">
+          <label for="ChangePassWDAdmin">Change Admin Password:</label>
           <input type="text" id="AdminUsername" placeholder="Benutzername" />
           <input type="password" id="OldPassword" placeholder="Altes Passwort" />
           <input type="password" id="NewPassword1" placeholder="Neues Passwort" />
@@ -108,13 +109,17 @@
           <button onclick="changePasswd()">Passwort ändern</button>
         </div>
 
-        <div class="AddNewAdminUser">
-          <input type="text" id="NewAdminUser" placeholder="Neuer Admin-Name" />
-          <input type="password" id="NewAdminPass" placeholder="Passwort" />
+        <div class="AddNewAdminUser" id="AddNewAdminUser">
+          <label for="AddNewAdminUser">Add new Admin:</label>
+          <input type="text" id="CurrentAdminNameCreate" placeholder="Current Admin-Username" />
+          <input type="password" id="CurrentAdminPWCreate" placeholder="Current password" />
+          <input type="text" id="NewAdminUser" placeholder="New Admin-Name" />
+          <input type="password" id="NewAdminPass" placeholder="Password" />
           <button onclick="addAdmin()">Admin hinzufügen</button>
         </div>
 
-        <div class="DelAdminUser">
+        <div class="DelAdminUser" id="DelAdminUser">
+          <label for="DelAdminUser">Delete Admin:</label>
           <input type="text" id="DelAdminName" placeholder="Admin-Name" />
           <input type="password" id="DelAdminPass" placeholder="Passwort" />
           <button onclick=" delAdmin()">Admin löschen</button>
