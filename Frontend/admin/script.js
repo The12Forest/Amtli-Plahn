@@ -1,3 +1,11 @@
+function getDayValue(id) {
+  let dropdown = document.getElementById(id).value;
+  if (dropdown == 7) {
+    dropdown = new Date().getDay();
+  }
+  return dropdown;
+}
+
 async function populateDropdownUser() {
   try {
     const response = await fetch(baseurl + "/api/user/all");
@@ -10,11 +18,11 @@ async function populateDropdownUser() {
         option.value = name;
         option.textContent = name.charAt(0).toUpperCase() + name.slice(1);
         dropdown.appendChild(option);
-      });
-      populatetask()
-      timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
-      timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
+      })
     }
+    populatetask()
+    timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
+    timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
   } catch (error) {
     console.error('Error fetching user dropdown data:', error);
   }
@@ -23,9 +31,7 @@ async function populateDropdownUser() {
 async function populatetask() {
   try {
     const user = document.getElementById("UserSelectTaskDelete").value;
-    const day = document.getElementById("DaySelectTaskDelete").value;
-
-
+    const day = getDayValue("DaySelectTaskDelete");
     const response = await fetch(baseurl + "/api/task/all/" + user + "/" + day);
     const tasks = await response.json();
     const dropdowns = document.getElementsByClassName('TaskSelectDel');
@@ -47,9 +53,10 @@ async function populatetask() {
 async function createTask() {
   const username = document.getElementById('UserSelectTaskCreate').value;
   const taskname = document.getElementById("Taskname-create").value;
-  const day = document.getElementById("DaySelectTaskCreate").value;
+  const time = document.getElementById("TaskTime").value;
+  const day = getDayValue("DaySelectTaskCreate");
   try {
-    await fetch(baseurl + "/api/task/create/" + username + "/" + day + "/" + encodeURIComponent(taskname));
+    await fetch(baseurl + "/api/task/create/" + username + "/" + day + "/" + time + "/" + encodeURIComponent(taskname));
   } catch (error) {
     console.error("Error creating task:", error);
   }
@@ -58,7 +65,7 @@ async function createTask() {
 
 async function deleteTask() {
   const value = document.getElementById('UserSelectTaskDelete').value;
-  const day = document.getElementById("DaySelectTaskDelete").value;
+  const day = getDayValue("DaySelectTaskDelete");
   const username = value.charAt(0).toLowerCase() + value.slice(1);
   const taskDropdown = document.getElementById("TaskSelectDel");
   const taskname = taskDropdown.value;

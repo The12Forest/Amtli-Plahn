@@ -15,18 +15,20 @@
       <div class="TaskCreate">
         <label for="Taskname-create">Task create:</label>
         <input type="text" id="Taskname-create" placeholder="Neue Aufgabe" />
+        <input type="number" id="TaskTime" placeholder="Zeit in Minuten" />
         <select class="UserSelect" id="UserSelectTaskCreate">
           <option>Loading...</option>
         </select>
         <div class="TaskCreateDay">
           <select class="DaySelectCreate" id="DaySelectTaskCreate">
-            <option value="0">Sunday</option>
+            <option value="7">Today</option>
             <option value="1">Monday</option>
             <option value="2">Tuesday</option>
             <option value="3">Wednesday</option>
             <option value="4">Thursday</option>
             <option value="5">Friday</option>
             <option value="6">Saturday</option>
+            <option value="0">Sunday</option>
           </select>
         </div>
         <button onclick="createTask()" id="Submit-Task-Button">Submit</button>
@@ -40,13 +42,14 @@
         </select>
 
         <select class="DaySelect" id="DaySelectTaskDelete">
-          <option value="0">Sunday</option>
-          <option value="1">Monday</option>
-          <option value="2">Tuesday</option>
-          <option value="3">Wednesday</option>
-          <option value="4">Thursday</option>
-          <option value="5">Friday</option>
-          <option value="6">Saturday</option>
+            <option value="7">Today</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+            <option value="0">Sunday</option>
         </select>
 
         <select class="TaskSelectDel" id="TaskSelectDel">
