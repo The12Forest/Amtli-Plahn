@@ -31,7 +31,7 @@ fetch(basedomain + "/api/temp/get")
       });
 
 
-    fetch(basedomain + "/api/task/all/" + userName)
+    fetch(basedomain + "/api/task/all/" + userName + "/" + (new Date().getDay()))
       .then(response => response.json())
       .then(data => {
       const div = document.getElementById("task-list");

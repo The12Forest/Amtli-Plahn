@@ -1,16 +1,20 @@
 {
     "cSpell.ignoreWords": [
         "Fertig",
+        "Sonntag",
         "adduser",
         "basedomain",
+        "deluser",
         "gamingtime",
         "logprefix",
         "mtli",
+        "reloadtask",
         "taskid",
+        "tasktoday",
         "timeadd",
         "userbutton",
-        "usertime",
-        "deluser"
+        "usertask",
+        "usertime"
     ],
     "cSpell.words": [
         "Rechte",

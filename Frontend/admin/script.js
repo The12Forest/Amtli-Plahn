@@ -11,7 +11,7 @@ async function populateDropdownUser() {
         option.textContent = name.charAt(0).toUpperCase() + name.slice(1);
         dropdown.appendChild(option);
       });
-      populatetask(document.getElementById("UserSelectTaskDelete").value)
+      populatetask()
       timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
       timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
     }
@@ -20,9 +20,13 @@ async function populateDropdownUser() {
   }
 }
 
-async function populatetask(selectedValue) {
+async function populatetask() {
   try {
-    const response = await fetch(baseurl + "/api/task/all/" + selectedValue);
+    const user = document.getElementById("UserSelectTaskDelete").value;
+    const day = document.getElementById("DaySelectTaskDelete").value;
+
+
+    const response = await fetch(baseurl + "/api/task/all/" + user + "/" + day);
     const tasks = await response.json();
     const dropdowns = document.getElementsByClassName('TaskSelectDel');
     for (let dropdown of dropdowns) {
@@ -41,30 +45,29 @@ async function populatetask(selectedValue) {
 
 
 async function createTask() {
-  const userDropdown = document.getElementById('UserSelectTaskCreate');
-  const username = userDropdown.value;
-  const text = document.getElementById("Taskname-create");
-  const taskname = text.value;
+  const username = document.getElementById('UserSelectTaskCreate').value;
+  const taskname = document.getElementById("Taskname-create").value;
+  const day = document.getElementById("DaySelectTaskCreate").value;
   try {
-    await fetch(baseurl + "/api/task/create/" + username + "/" + encodeURIComponent(taskname));
+    await fetch(baseurl + "/api/task/create/" + username + "/" + day + "/" + encodeURIComponent(taskname));
   } catch (error) {
     console.error("Error creating task:", error);
   }
-  populatetask(document.getElementById("UserSelectTaskDelete").value)
+  populatetask()
 }
 
 async function deleteTask() {
-  const value = document.getElementById('UserSelectTaskDelete');
-  const value1 = value.value;
-  const username = value1.charAt(0).toLowerCase() + value1.slice(1);
+  const value = document.getElementById('UserSelectTaskDelete').value;
+  const day = document.getElementById("DaySelectTaskDelete").value;
+  const username = value.charAt(0).toLowerCase() + value.slice(1);
   const taskDropdown = document.getElementById("TaskSelectDel");
   const taskname = taskDropdown.value;
   try {
-    await fetch(baseurl + "/api/task/del/" + username + "/" + taskname);
+    await fetch(baseurl + "/api/task/del/" + username + "/" + day + "/" + taskname);
   } catch (error) {
     console.error("Error deleting task:", error);
   }
-  populatetask(document.getElementById("UserSelectTaskDelete").value)
+  populatetask()
 }
 
 
@@ -179,6 +182,10 @@ document.getElementById("UserSelectTimeSet").addEventListener("change", function
 
 document.getElementById("UserSelectTimeAdd").addEventListener("change", function () {
   timesetupdate(this.value, "TimeAddInput");
+});
+
+document.getElementById("DaySelectTaskDelete").addEventListener("change", function () {
+  populatetask();
 });
 
 

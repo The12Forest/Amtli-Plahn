@@ -20,7 +20,17 @@
         <select class="UserSelect" id="UserSelectTaskCreate">
           <option>Loading...</option>
         </select>
-
+        <div class="TaskCreateDay">
+          <select class="DaySelectCreate" id="DaySelectTaskCreate">
+            <option value="0">Sunday</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+          </select>
+        </div>
         <button onclick="createTask()" id="Submit-Task-Button">Submit</button>
       </div>
 
@@ -29,6 +39,16 @@
 
         <select class="UserSelect" id="UserSelectTaskDelete">
           <option>Loading...</option>
+        </select>
+
+        <select class="DaySelect" id="DaySelectTaskDelete">
+          <option value="0">Sunday</option>
+          <option value="1">Monday</option>
+          <option value="2">Tuesday</option>
+          <option value="3">Wednesday</option>
+          <option value="4">Thursday</option>
+          <option value="5">Friday</option>
+          <option value="6">Saturday</option>
         </select>
 
         <select class="TaskSelectDel" id="TaskSelectDel">

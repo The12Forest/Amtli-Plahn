@@ -14,7 +14,7 @@ router.use("/save", (req, res) => {
 
 router.use("/load", (req, res) => {
   time = JSON.parse(fs.readFileSync("./Backend/saves/time.json"))
-  console.log(logprefix + "Times loaded:  "+ time)
+  console.log(logprefix + "Times loaded:  "+ JSON.stringify(time))
   res.json(time)
 })
 

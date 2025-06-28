@@ -22,7 +22,7 @@ router.use("/save", (req, res) => {
 
 router.use("/load", (req, res) => {
   passwords = JSON.parse(fs.readFileSync("./Backend/saves/passwords.json"))
-   console.log(logprefix + "Passwords loaded:  " + passwords)
+  // console.log(logprefix + "Passwords loaded:  " + JSON.stringify(passwords))
   console.log(logprefix + "Passwords loaded:  " + '"Hidden"')
   res.send("Passwords loaded")  
 })

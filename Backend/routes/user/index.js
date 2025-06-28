@@ -17,7 +17,7 @@ router.use("/save", (req, res) => {
 router.use("/load", (req, res) => {
   user = JSON.parse(fs.readFileSync("./Backend/saves/user.json"))
   res.json(user)
-  console.log(logprefix + "Users loaded:  " + user)
+  console.log(logprefix + "Users loaded:  " + JSON.stringify(user))
 })
 
 router.use("/add/:user", (req, res) => {

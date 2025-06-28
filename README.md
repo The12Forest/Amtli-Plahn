@@ -13,3 +13,5 @@ Features:
 - Admin password reset
 - Del admin account exept for the last one
 - implement https
+- Tasks for Weekday
+- Unique time for task
