@@ -20,10 +20,10 @@ router.use("/save", (req, res) => {
 })
 
 router.use("/load", (req, res) => {
-  tasks = JSON.parse(fs.readFileSync("./Backend/saves/tasks.json"))
   task_times = JSON.parse(fs.readFileSync("./Backend/saves/task_times.json"))
+  tasks = JSON.parse(fs.readFileSync("./Backend/saves/tasks.json"))
   users = JSON.parse(fs.readFileSync("./Backend/saves/user.json"))
-  console.log(logprefix + "Tasks loaded:  " + JSON.stringify(task_times))
+  console.log(logprefix + "Times loaded:  " + JSON.stringify(task_times))
   console.log(logprefix + "Tasks loaded:  " + JSON.stringify(tasks))
   console.log(logprefix + "Users loaded:  " + JSON.stringify(users))
   res.json(tasks)
