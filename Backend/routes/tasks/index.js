@@ -1,40 +1,24 @@
-/*
-Todo
-Add user to all Days
-Change Backend
-Change Frontend
-*/
-
 import express from "express"
-// import bodyParser from "body-parser";
 import cron from 'node-cron';
 import fs from 'fs';
-import { userInfo } from "os";
-// import { toUnicode } from "punycode";
 const router = express.Router()
 const baseurl = "http://127.0.0.1"
 const logprefix = "TaskRouter:      "
 let tasks = []
-let tasktoday = []
 let users = []
 
 
 router.use("/save", (req, res) => {
-  let buffer = JSON.stringify(tasktoday)
-  fs.writeFileSync("./Backend/saves/tasktoday.json", buffer)
-  console.log(logprefix + "Settings tasks saved: " + buffer)
-  buffer = JSON.stringify(tasks)
+  let buffer = JSON.stringify(tasks)
   fs.writeFileSync("./Backend/saves/tasks.json", buffer)
-  console.log(logprefix + "Settings today saved: " + buffer)
+  console.log(logprefix + "Settings tasks saved: " + buffer)
   res.json(buffer)
 })
 
 router.use("/load", (req, res) => {
-  tasktoday = JSON.parse(fs.readFileSync("./Backend/saves/tasktoday.json"))
   tasks = JSON.parse(fs.readFileSync("./Backend/saves/tasks.json"))
   users = JSON.parse(fs.readFileSync("./Backend/saves/user.json"))
   console.log(logprefix + "Tasks loaded:  " + JSON.stringify(tasks))
-  console.log(logprefix + "Tasktoday loaded:  " + JSON.stringify(tasktoday))
   console.log(logprefix + "Users loaded:  " + JSON.stringify(users))
   res.json(tasks)
 })
@@ -118,11 +102,6 @@ router.get("/done/:user/:day/:task/", (req, res) => {
 router.get("/all/:user/:day/", (req, res) => {
   let day = parseInt(req.params.day);
   let userid = users.indexOf(req.params.user)
-  // console.log(day)
-  // console.log(userid)
-  // console.log(req.params.user)
-  // console.log(JSON.stringify(tasks))
-
   if (userid !== -1) {
     res.json(tasks[day][userid])
     console.log(logprefix + "Searched for tasks of user: " + req.params.user + " and the tasks where " + tasks[userid])
@@ -143,6 +122,3 @@ cron.schedule('0 0 * * 0', () => {
 
 router.use("", (req, res) => res.status(404).json({error: "not found"}))
 export { router }
-
-
-
