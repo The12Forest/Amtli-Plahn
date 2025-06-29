@@ -1,11 +1,10 @@
 import express from "express"
-import { Time } from "../../time/time.js";
 const router = express.Router()
 const logprefix = "AdminRouter:     "
 const baseurl = "http://127.0.0.1"
 
 router.use("/save", (req, res) => {
-    console.log(Time() + logprefix + "All data saved.")
+    console.log(logprefix + "All data saved.")
     fetch(baseurl + "/api/task/save")
     fetch(baseurl + "/api/user/save")
     fetch(baseurl + "/api/time/save")
@@ -14,7 +13,7 @@ router.use("/save", (req, res) => {
 })
 
 router.use("/load", (req, res) => {
-    console.log(Time() + logprefix + "All data loaded.")
+    console.log(logprefix + "All data loaded.")
     fetch(baseurl + "/api/task/load")
     fetch(baseurl + "/api/user/load")
     fetch(baseurl + "/api/time/load")
@@ -23,12 +22,12 @@ router.use("/load", (req, res) => {
 })
 
 router.use("/space", (req, res) => {
-    console.log(Time() + logprefix)
+    console.log(logprefix)
     res.send("Space in log created.")
 })
 
 router.use("/log/:logmessage", (req, res) => {
-    console.log(Time() + logprefix + req.params.logmessage)
+    console.log(logprefix + req.params.logmessage)
     res.send("Added message to log.")
 })
 
