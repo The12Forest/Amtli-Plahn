@@ -85,11 +85,14 @@ function Time() {
 
 const originalLog = console.log;
 
+if (!fs.existsSync('./LOG')) {
+  fs.mkdirSync('./LOG', { recursive: true });
+}
+
 console.log = function(message, ...optionalParams) {
   fs.createWriteStream("./LOG/LOG_" + (new Date().getFullYear()) + "-" + String(new Date().getMonth() + 1).padStart(2, '0') + "-" + String(new Date().getDate()).padStart(2, '0') + ".log", { flags: 'a' }).write(Time() + message + " " + optionalParams.join(' ') + "\n");
   originalLog(Time() + message, ...optionalParams);
 };
-
 
 fetch(baseurl + "/api/storage/load")
 console.log("Server Startup!")
