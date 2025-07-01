@@ -28,7 +28,7 @@ body {
   text-align: center;
 }
 
-.login-form input {
+.login-form input, .AdminReset input {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
@@ -37,7 +37,7 @@ body {
   font-size: 16px;
 }
 
-.login-form button {
+.submitbutton {
   width: 100%;
   padding: 12px;
   background-color: #4caf50;
@@ -47,8 +47,25 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 20px;
 }
 
-.login-form button:hover {
+.resetadminbutton, .resetbutton {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf89;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitbutton:hover {
   background-color: #388e3c;
+}
+
+.resetadminbutton:hover, .resetbutton:hover {
+  background-color: #357b60;
 }

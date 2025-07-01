@@ -1,0 +1,211 @@
+2025-07-01 06:52:54.582      Server Startup! 
+2025-07-01 06:52:54.586      HTTPS server running on port 2007 
+2025-07-01 06:52:54.585      HTTP server running on port 80 
+2025-07-01 06:52:54.630      AdminRouter:     All data loaded. 
+2025-07-01 06:52:54.705      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 06:52:54.715      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 06:52:54.715      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 06:52:54.727      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 06:52:54.716      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 06:52:54.721      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 06:56:16.842      Server Startup! 
+2025-07-01 06:56:16.844      HTTP server running on port 80 
+2025-07-01 06:56:16.845      HTTPS server running on port 2007 
+2025-07-01 06:56:16.879      AdminRouter:     All data loaded. 
+2025-07-01 06:56:16.936      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 06:56:16.936      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 06:56:16.937      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 06:56:16.940      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 06:56:16.947      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 06:56:16.951      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 06:56:50.330      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 06:57:01.432      LoginRouter:     Admin user tried to login but the username/password was wrong. 
+2025-07-01 06:57:05.873      LoginRouter:     Admin user: 0 logged in. 
+2025-07-01 06:57:05.970      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 06:57:05.993      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 06:57:05.996      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 06:57:06.009      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 07:01:17.189      LoginRouter:     Admin user: 0 logged in. 
+2025-07-01 07:01:17.277      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 07:01:17.297      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 07:01:17.299      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 07:01:17.309      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:27:03.698      Server Startup! 
+2025-07-01 18:27:03.704      HTTP server running on port 80 
+2025-07-01 18:27:03.705      HTTPS server running on port 2007 
+2025-07-01 18:27:03.775      AdminRouter:     All data loaded. 
+2025-07-01 18:27:03.867      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 18:27:03.866      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 18:27:03.868      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 18:27:03.872      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 18:27:03.877      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 18:27:42.032      Server Startup! 
+2025-07-01 18:27:42.035      HTTP server running on port 80 
+2025-07-01 18:27:42.036      HTTPS server running on port 2007 
+2025-07-01 18:27:42.064      AdminRouter:     All data loaded. 
+2025-07-01 18:27:42.109      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 18:27:42.107      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 18:27:42.109      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 18:27:42.119      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 18:27:42.122      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 18:27:57.269      Server Startup! 
+2025-07-01 18:27:57.272      HTTP server running on port 80 
+2025-07-01 18:27:57.272      HTTPS server running on port 2007 
+2025-07-01 18:27:57.289      AdminRouter:     All data loaded. 
+2025-07-01 18:27:57.328      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 18:27:57.330      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 18:27:57.338      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 18:27:57.339      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 18:27:57.340      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 18:27:57.344      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 18:27:57.345      LoginRouter:     Passwordresets loaded:["Hidden"] 
+2025-07-01 18:28:04.316      TempRouter:      Set temp to: manuel
+2025-07-01 18:28:04.492      TempRouter:      Responded: manuel 
+2025-07-01 18:28:04.550      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:28:04.575      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 18:28:04.596      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
+2025-07-01 18:28:55.223      TempRouter:      Set temp to: manuel
+2025-07-01 18:28:55.423      TempRouter:      Responded: manuel 
+2025-07-01 18:28:55.474      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:28:55.504      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 18:28:55.525      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
+2025-07-01 18:29:25.383      LoginRouter:     Admin user: 0 logged in. 
+2025-07-01 18:29:25.466      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 18:29:25.482      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 18:29:25.485      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:29:25.492      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:29:57.127      TaskRouter:      Creating task: asdf for user: manuel with time: 999999 
+2025-07-01 18:29:57.139      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 18:30:12.399      UserRouter:      Creating user: User added: asdf 
+2025-07-01 18:30:12.409      TimeRouter:      User asdf created. 
+2025-07-01 18:30:12.410      TimeRouter:      Time update: User asdf to 0 
+2025-07-01 18:30:12.413      TaskRouter:      Added user: asdf 
+2025-07-01 18:30:12.418      UserRouter:      Searched for users: manuel,silvan,david,asdf 
+2025-07-01 18:30:12.434      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:12.441      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:12.451      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:21.734      UserRouter:      Searched for users: manuel,silvan,david,asdf 
+2025-07-01 18:30:24.994      TempRouter:      Set temp to: manuel
+2025-07-01 18:30:25.182      TempRouter:      Responded: manuel 
+2025-07-01 18:30:25.226      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:25.244      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:25.265      TaskRouter:      Searched for task-times of user: manuel and the task-times where 999999 
+2025-07-01 18:30:28.329      TaskRouter:      Task 0 of userid manuel marked as done. 
+2025-07-01 18:30:28.336      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:28.342      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:28.553      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:28.563      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
+2025-07-01 18:30:31.769      TempRouter:      Responded: manuel 
+2025-07-01 18:30:31.803      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:31.819      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:31.836      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
+2025-07-01 18:30:33.395      TempRouter:      Responded: manuel 
+2025-07-01 18:30:33.442      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:33.468      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:33.486      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
+2025-07-01 18:30:34.277      TempRouter:      Responded: manuel 
+2025-07-01 18:30:34.328      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:34.351      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:34.361      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
+2025-07-01 18:30:34.743      TempRouter:      Responded: manuel 
+2025-07-01 18:30:34.791      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:34.813      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:34.940      TempRouter:      Responded: manuel 
+2025-07-01 18:30:34.975      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:34.993      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:35.126      TempRouter:      Responded: manuel 
+2025-07-01 18:30:35.156      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:35.307      TempRouter:      Responded: manuel 
+2025-07-01 18:30:35.340      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 18:30:35.360      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,,, 
+2025-07-01 18:30:35.376      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
+2025-07-01 18:30:43.759      Server Startup! 
+2025-07-01 18:30:43.762      HTTP server running on port 80 
+2025-07-01 18:30:43.763      HTTPS server running on port 2007 
+2025-07-01 18:30:43.791      AdminRouter:     All data loaded. 
+2025-07-01 18:30:43.835      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 18:30:43.834      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 18:30:43.833      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 18:30:43.838      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 18:30:43.844      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 18:30:43.845      LoginRouter:     Passwordresets loaded:["Hidden"] 
+2025-07-01 18:30:43.853      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:12:12.596      Server Startup! 
+2025-07-01 19:12:12.598      HTTPS server running on port 2007 
+2025-07-01 19:12:12.597      HTTP server running on port 80 
+2025-07-01 19:12:12.608      AdminRouter:     All data loaded. 
+2025-07-01 19:12:12.627      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:12:12.628      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:12:12.628      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:12:12.630      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 19:12:12.632      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 19:12:12.633      LoginRouter:     Passwordresets loaded:["Hidden"] 
+2025-07-01 19:12:12.637      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:14:24.673      Server Startup! 
+2025-07-01 19:14:24.675      HTTP server running on port 80 
+2025-07-01 19:14:24.675      HTTPS server running on port 2007 
+2025-07-01 19:14:24.688      AdminRouter:     All data loaded. 
+2025-07-01 19:14:24.708      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:14:24.710      LoginRouter:     Passwordresets loaded:["Hidden"] 
+2025-07-01 19:14:24.710      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 19:14:24.711      LoginRouter:     Adminusernames loaded:["Hidden"] 
+2025-07-01 19:14:24.714      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:14:24.715      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:14:24.715      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:14:24.716      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 19:17:20.862      Server Startup! 
+2025-07-01 19:17:20.864      HTTP server running on port 80 
+2025-07-01 19:17:20.864      HTTPS server running on port 2007 
+2025-07-01 19:17:20.879      AdminRouter:     All data loaded. 
+2025-07-01 19:17:20.909      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:17:20.908      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:17:20.908      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:17:20.911      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 19:17:20.911      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 19:17:20.917      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:17:20.918      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 19:21:05.463      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 19:50:10.667      Server Startup! 
+2025-07-01 19:50:10.669      HTTPS server running on port 2007 
+2025-07-01 19:50:10.669      HTTP server running on port 80 
+2025-07-01 19:50:10.685      AdminRouter:     All data loaded. 
+2025-07-01 19:50:10.707      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:50:10.708      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 19:50:10.709      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 19:50:10.717      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:50:10.717      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:50:10.718      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:50:10.723      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 19:55:58.711      Server Startup! 
+2025-07-01 19:55:58.713      HTTP server running on port 80 
+2025-07-01 19:55:58.713      HTTPS server running on port 2007 
+2025-07-01 19:55:58.725      AdminRouter:     All data loaded. 
+2025-07-01 19:55:58.743      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:55:58.744      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:55:58.745      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:55:58.746      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 19:55:58.748      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 19:55:58.749      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 19:55:58.752      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:58:20.527      Server Startup! 
+2025-07-01 19:58:20.529      HTTP server running on port 80 
+2025-07-01 19:58:20.529      HTTPS server running on port 2007 
+2025-07-01 19:58:20.541      AdminRouter:     All data loaded. 
+2025-07-01 19:58:20.560      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:58:20.561      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 19:58:20.565      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 19:58:20.565      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:58:20.564      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 19:58:20.568      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 19:58:20.567      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 20:10:43.083      Server Startup! 
+2025-07-01 20:10:43.091      HTTP server running on port 80 
+2025-07-01 20:10:43.094      HTTPS server running on port 2007 
+2025-07-01 20:10:43.142      AdminRouter:     All data loaded. 
+2025-07-01 20:10:43.210      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 20:10:43.211      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 20:10:43.212      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 20:10:43.217      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 20:10:43.216      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 20:10:43.230      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 20:10:43.233      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 

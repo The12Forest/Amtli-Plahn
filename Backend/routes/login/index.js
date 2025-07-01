@@ -7,23 +7,43 @@ const logprefix = "LoginRouter:     "
 const adminPanelDir = "../../../Frontend/admin";
 const adminPanelPath = path.join(adminPanelDir, "main.html");
 let passwords = []
+let admin_usernames = []
+let passwordreset = []
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
 
 
 router.use("/save", (req, res) => {
   let buffer = JSON.stringify(passwords)
   fs.writeFileSync("./Backend/saves/passwords.json", buffer)
-    //   console.log(logprefix + "Passwords saved:     " + buffer)
-  console.log(logprefix + "Passwords saved:     " + '"Hidden"')
+  buffer = JSON.stringify(admin_usernames)
+  fs.writeFileSync("./Backend/saves/admin_usernames.json", buffer)
+  //   console.log(logprefix + "Passwords saved:     " + JSON.stringify(passwords))
+  console.log(logprefix + "Passwords saved:     " + '["Hidden"]')
+  // console.log(logprefix + "Usernames saved:     " + JSON.stringify(admin_usernames))
+  console.log(logprefix + "Username saved:      " + '["Hidden"]')
   res.send("Passwords Saved")
 })
 
 router.use("/load", (req, res) => {
   passwords = JSON.parse(fs.readFileSync("./Backend/saves/passwords.json"))
+  admin_usernames = JSON.parse(fs.readFileSync("./Backend/saves/admin_usernames.json"))
   // console.log(logprefix + "Passwords loaded:  " + JSON.stringify(passwords))
   console.log(logprefix + "Passwords loaded:     " + '["Hidden"]')
+  // console.log(logprefix + "Passwordresets loaded:  " + JSON.stringify(admin_usernames))
+  console.log(logprefix + "Usernames loaded:     " + '["Hidden"]')
   res.send("Passwords loaded")  
 })
 
@@ -73,7 +93,27 @@ router.get("/update/:passwdold/:passwd", (req, res) => {
   }
 })
 
+router.get("/initate_passwordreset", (req, res) => {
+  let randrom_id = makeid(20);
+  passwordreset.push(randrom_id);
+  res.json({"OK":true})
+})
 
+router.get("/passwordreset/:resetstr/:username/:newpasswd", (req, res) => {  
+  let resetpresent = passwordreset.indexOf(req.params.resetstr)
+  let userid = admin_usernames.indexOf(req.params.username)
+  if (resetpresent !== -1) {
+    if (userid !== -1) {
+      passwordreset.splice(resetpresent)
+      passwords[userid] = req.params.newpasswd
+      res.json({"OK":true})
+    } else {
+      res.json({"OK":false, "reason":"Username not valid!"})
+    }
+  } else {
+    res.json({"OK":false, "reason":"Reset-Code not valid!"})
+  }
+})
 
 router.get("/:passwd", (req, res) => {
   let passwdIndex = passwords.indexOf(req.params.passwd);
