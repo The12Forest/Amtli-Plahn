@@ -209,3 +209,179 @@
 2025-07-01 20:10:43.216      LoginRouter:     Passwords loaded:     ["Hidden"] 
 2025-07-01 20:10:43.230      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
 2025-07-01 20:10:43.233      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 22:40:48.372      Server Startup! 
+2025-07-01 22:40:48.373      HTTP server running on port 80 
+2025-07-01 22:40:48.373      HTTPS server running on port 2007 
+2025-07-01 22:40:48.379      AdminRouter:     All data loaded. 
+2025-07-01 22:40:48.389      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 22:40:48.389      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 22:40:48.389      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 22:40:48.390      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 22:40:48.390      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 22:40:48.391      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 22:40:48.391      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 22:41:02.151      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 22:41:04.076      TempRouter:      Set temp to: manuel
+2025-07-01 22:41:04.137      TempRouter:      Responded: manuel 
+2025-07-01 22:41:04.146      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 22:41:04.151      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 22:41:04.156      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
+2025-07-01 23:21:06.954      HTTP server running on port 80 
+2025-07-01 23:21:06.953      Server Startup! 
+2025-07-01 23:21:06.954      HTTPS server running on port 2007 
+2025-07-01 23:21:06.960      AdminRouter:     All data loaded. 
+2025-07-01 23:21:06.971      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:21:06.971      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:21:06.971      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:21:06.973      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:21:06.973      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:21:06.974      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:21:06.974      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:23:52.911      Server Startup! 
+2025-07-01 23:23:52.912      HTTP server running on port 80 
+2025-07-01 23:23:52.912      HTTPS server running on port 2007 
+2025-07-01 23:23:52.918      AdminRouter:     All data loaded. 
+2025-07-01 23:23:52.928      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:23:52.928      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:23:52.929      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:23:52.930      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:23:52.930      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:23:52.931      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:23:52.931      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:24:19.862      Server Startup! 
+2025-07-01 23:24:19.863      HTTP server running on port 80 
+2025-07-01 23:24:19.863      HTTPS server running on port 2007 
+2025-07-01 23:24:19.869      AdminRouter:     All data loaded. 
+2025-07-01 23:24:19.879      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:24:19.880      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:24:19.880      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:24:19.881      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:24:19.881      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:24:19.882      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:24:19.882      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:24:26.053      LoginRouter:     Admin-Password-ResetCode was generated, it was: "7P2rGixt9Js1XvC8v6Jz" 
+2025-07-01 23:25:04.891      LoginRouter:     Admin user tried to login but the username/password was wrong. 
+2025-07-01 23:25:47.017      Server Startup! 
+2025-07-01 23:25:47.018      HTTPS server running on port 2007 
+2025-07-01 23:25:47.018      HTTP server running on port 80 
+2025-07-01 23:25:47.024      AdminRouter:     All data loaded. 
+2025-07-01 23:25:47.034      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:25:47.034      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:25:47.034      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:25:47.035      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:25:47.036      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:25:47.036      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:25:47.037      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:25:54.708      LoginRouter:     Admin-Password-ResetCode was generated, it was: "Rx1ZA02FYVLwUrpwY1eg" 
+2025-07-01 23:26:22.850      LoginRouter:     Admin user: 0 logged in. 
+2025-07-01 23:26:22.892      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 23:26:22.898      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 23:26:22.899      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 23:26:22.911      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 23:27:11.780      Server Startup! 
+2025-07-01 23:27:11.781      HTTPS server running on port 2007 
+2025-07-01 23:27:11.780      HTTP server running on port 80 
+2025-07-01 23:27:11.786      AdminRouter:     All data loaded. 
+2025-07-01 23:27:11.797      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:27:11.797      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:27:11.797      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:27:11.798      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:27:11.799      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:27:11.800      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:27:11.800      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:27:18.657      LoginRouter:     Admin-Password-ResetCode was generated, it was: "s0M5WrCrCLc09oeKji6U" 
+2025-07-01 23:40:09.701      Server Startup! 
+2025-07-01 23:40:09.702      HTTPS server running on port 2007 
+2025-07-01 23:40:09.702      HTTP server running on port 80 
+2025-07-01 23:40:09.708      AdminRouter:     All data loaded. 
+2025-07-01 23:40:09.717      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:40:09.717      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:40:09.717      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:40:09.718      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:40:09.718      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:40:09.719      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:40:09.719      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:40:17.932      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "DWFxUGITaFPWiSaDneae" 
+2025-07-01 23:40:25.034      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "lnVFdz22sBG9zIqzNZ6O" 
+2025-07-01 23:40:36.050      LoginRouter:     The admin password of User: Kathrin with ID: 0 was changed to "3d94bed1e266e342dba2bf6a1d17aca11c4d78b2950fcc679fab3234111ce1bb" 
+2025-07-01 23:40:36.050      LoginRouter:     Admin-Password-Reset-Code: "DWFxUGITaFPWiSaDneae"was used. 
+2025-07-01 23:40:44.107      LoginRouter:     Admin user: 0 logged in. 
+2025-07-01 23:40:44.162      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 23:40:44.168      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
+2025-07-01 23:40:44.169      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 23:40:44.170      TimeRouter:      Searched for UserTime User: manuel Time: 0 
+2025-07-01 23:42:41.071      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "amkjIcjItGfAkGKU8iWE" 
+2025-07-01 23:42:42.878      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "izcgTCbMOBwfx0juMjuD" 
+2025-07-01 23:42:46.690      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "HZxeIySmvvOcfvX9HQ5r" 
+2025-07-01 23:43:00.420      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "KhGRvqdOkQMgh6VRVag2" 
+2025-07-01 23:43:09.554      Server Startup! 
+2025-07-01 23:43:09.555      HTTPS server running on port 2007 
+2025-07-01 23:43:09.554      HTTP server running on port 80 
+2025-07-01 23:43:09.561      AdminRouter:     All data loaded. 
+2025-07-01 23:43:09.571      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:43:09.572      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:43:09.572      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:43:09.573      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:43:09.573      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:43:09.574      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:43:09.575      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:43:13.391      UserRouter:      Searched for users: manuel,silvan,david 
+2025-07-01 23:44:21.389      Server Startup! 
+2025-07-01 23:44:21.390      HTTPS server running on port 2007 
+2025-07-01 23:44:21.390      HTTP server running on port 80 
+2025-07-01 23:44:21.396      AdminRouter:     All data loaded. 
+2025-07-01 23:44:21.406      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:44:21.406      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:44:21.406      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:44:21.407      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:44:21.408      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:44:21.409      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:44:21.409      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:45:29.147      LoginRouter:     Someone tried to change password of User: "asdf" but the wrong reset code was used. 
+2025-07-01 23:48:09.620      Server Startup! 
+2025-07-01 23:48:09.621      HTTPS server running on port 2007 
+2025-07-01 23:48:09.621      HTTP server running on port 80 
+2025-07-01 23:48:09.627      AdminRouter:     All data loaded. 
+2025-07-01 23:48:09.639      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:48:09.639      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:48:09.639      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:48:09.641      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:48:09.641      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:48:09.642      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:48:09.642      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:48:17.955      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "QgtitwzIKy3d1Uk3Q0M8" 
+2025-07-01 23:48:20.385      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "uC7lYOX1Znxkhkx15cbA" 
+2025-07-01 23:48:22.171      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "4uYMXSu2OLq3AKhq0Vzl" 
+2025-07-01 23:48:24.525      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "UJDgxb2RN55trtaCdaG4" 
+2025-07-01 23:51:52.268      Server Startup! 
+2025-07-01 23:51:52.269      HTTPS server running on port 2007 
+2025-07-01 23:51:52.269      HTTP server running on port 80 
+2025-07-01 23:51:52.274      AdminRouter:     All data loaded. 
+2025-07-01 23:51:52.285      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:51:52.285      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:51:52.285      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:51:52.286      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:51:52.287      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:51:52.288      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:51:52.288      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:51:57.020      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "jhrCmeyp32wFYaxgkPry" 
+2025-07-01 23:52:03.622      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "mds9oCteO19NBSt45vaZ" 
+2025-07-01 23:52:04.927      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "akud1zA6YALcYwpX3UP5" 
+2025-07-01 23:52:06.052      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "CrTT6ghIZUf3z1CkbhFd" 
+2025-07-01 23:52:07.132      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "LlSLAeUqXSLiO9ItH0lw" 
+2025-07-01 23:52:15.047      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "tdhPs9jjzJChrOtlhjjK" 
+2025-07-01 23:52:36.258      LoginRouter:     Someone tried to change the Admin-Password but the wrong User: "Kather" was put in. 
+2025-07-01 23:54:09.498      Server Startup! 
+2025-07-01 23:54:09.499      HTTP server running on port 80 
+2025-07-01 23:54:09.499      HTTPS server running on port 2007 
+2025-07-01 23:54:09.505      AdminRouter:     All data loaded. 
+2025-07-01 23:54:09.515      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:54:09.515      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-07-01 23:54:09.515      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:54:09.516      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-07-01 23:54:09.517      TimeRouter:      Times loaded:         ["manuel","0","silvan","0","david","0"] 
+2025-07-01 23:54:09.518      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-07-01 23:54:09.518      LoginRouter:     Passwords loaded:     ["Hidden"] 
+2025-07-01 23:54:12.275      LoginRouter:     Admin-Password-Reset-Code was generated, it was: "1mlVi71MzrlcrU8aRMd5" 
+2025-07-01 23:54:21.023      LoginRouter:     Someone tried to change the Admin-Password but the wrong User: "asdf" was put in. 
+2025-07-01 23:54:28.331      LoginRouter:     Someone tried to change the Admin-Password but the wrong User: "asdf" was put in. 

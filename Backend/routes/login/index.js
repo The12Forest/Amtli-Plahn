@@ -1,3 +1,4 @@
+import { Console, log } from "console";
 import express from "express"
 import fs from 'fs';
 import path from "path";
@@ -94,8 +95,11 @@ router.get("/update/:passwdold/:passwd", (req, res) => {
 })
 
 router.get("/initate_passwordreset", (req, res) => {
-  let randrom_id = makeid(20);
-  passwordreset.push(randrom_id);
+  let random_id = makeid(20);
+  passwordreset.push(random_id);
+  let buffer = JSON.stringify(passwordreset)
+  fs.writeFileSync("./Reset-Codes.json", buffer)
+  console.log(logprefix + 'Admin-Password-Reset-Code was generated, it was: ' + JSON.stringify(random_id))
   res.json({"OK":true})
 })
 
@@ -106,12 +110,18 @@ router.get("/passwordreset/:resetstr/:username/:newpasswd", (req, res) => {
     if (userid !== -1) {
       passwordreset.splice(resetpresent)
       passwords[userid] = req.params.newpasswd
-      res.json({"OK":true})
+      let buffer = JSON.stringify(passwordreset)
+      fs.writeFileSync("./Reset-Codes.json", buffer)
+      console.log(logprefix + "Admin-Password-Reset-Code: " + JSON.stringify(req.params.resetstr) + " was used.")
+      console.log(logprefix + "The admin password of User: " + req.params.username + " with ID: " + JSON.stringify(userid) + " was changed to " + JSON.stringify(req.params.newpasswd));
+      res.json({"Okay":true})
     } else {
-      res.json({"OK":false, "reason":"Username not valid!"})
+      console.log(logprefix + "Someone tried to change the Admin-Password but the wrong User: " + JSON.stringify(req.params.username) + " was put in.")
+      res.json({"Okay":false, "reason":"Username not valid!"})
     }
   } else {
-    res.json({"OK":false, "reason":"Reset-Code not valid!"})
+    console.log(logprefix + "Someone tried to change password of User: " + JSON.stringify(req.params.username) + " but the wrong reset code was used.")
+    res.json({"Okay":false, "reason":"Reset-Code not valid!"})
   }
 })
 

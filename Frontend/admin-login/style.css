@@ -50,7 +50,7 @@ body {
   margin-bottom: 20px;
 }
 
-.resetadminbutton, .resetbutton {
+.resetadminbutton, .resetbutton, .initiate_reset {
   width: 100%;
   padding: 12px;
   background-color: #4caf89;
@@ -62,10 +62,14 @@ body {
   transition: background-color 0.3s ease;
 }
 
+.resetbutton {
+  margin-bottom: 20px;
+}
+
 .submitbutton:hover {
   background-color: #388e3c;
 }
 
-.resetadminbutton:hover, .resetbutton:hover {
+.resetadminbutton:hover, .resetbutton:hover, .initiate_reset:hover {
   background-color: #357b60;
 }
