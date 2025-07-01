@@ -66,5 +66,5 @@ async function initiate_adminreset() {
   } catch (error) {
     console.error("Fehler beim Login:", error);
     alert("Login fehlgeschlagen.");
-  //! Conect it to the backend
+  }//! Conect it to the backend
 }
