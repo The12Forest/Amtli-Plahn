@@ -1,5 +1,5 @@
-let baseurl = "https://server5.techsvc.de:2007"
-// let baseurl = "https://localhost:2007"
+// let baseurl = "https://server5.techsvc.de:2007"
+let baseurl = "https://localhost:2007"
 let execute = true
 let execute2 = true
 
@@ -64,7 +64,7 @@ async function adminresetpage() {
 async function initiate_reset() {
   const response = await fetch(baseurl + "/api/login/initate_passwordreset");
   if (response.ok) {
-    alert("Reset-Code wurde erstellt und auf dem Server gespeichert. Bitte frage dienen Administrator ob er dir diesen aushändigen kann.")
+    alert("Reset-Code wurde erstellt und auf dem Server gespeichert. Bitte frage deinen Administrator ob er dir diesen aushändigen kann.")
   }
 }
 

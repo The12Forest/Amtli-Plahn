@@ -1,5 +1,5 @@
-let basedomain = "https://server5.techsvc.de:2007"
-// let basedomain = "https://localhost:2007"
+// let basedomain = "https://server5.techsvc.de:2007"
+let basedomain = "https://localhost:2007"
 let Username
 
 async function start() {
@@ -9,21 +9,31 @@ async function start() {
 }
 
 async function UpadteUsername() {
-  try {
-    let response = await fetch(basedomain + "/api/temp/get");
-    if (response.ok) {
-      response = await response.json()
-      Username = String(response.set);
+  Username = document.cookie.split('; ').find(row => row.startsWith('username='))?.split('=')[1];
 
-      UserNameUppercase = response.set.charAt(0).toUpperCase() + response.set.slice(1);
-      document.getElementById('Username-container').textContent = UserNameUppercase;
-      document.getElementById('title').textContent = UserNameUppercase + " Ämtli"
-    } else {
-      Username = null;
-    }
-  } catch (error) {
-    console.error("Network or fetch error:", error);
+  if (Username) {
+    UserNameUppercase = Username.charAt(0).toUpperCase() + Username.slice(1);
+    document.getElementById('Username-container').textContent = UserNameUppercase;
+    document.getElementById('title').textContent = UserNameUppercase + " Ämtli"
+  } else {
+    console.log("Did not work")
   }
+
+  // try {
+  //   let response = await fetch(basedomain + "/api/temp/get");
+  //   if (response.ok) {
+  //     response = await response.json()
+  //     Username = String(response.set);
+
+  //     UserNameUppercase = response.set.charAt(0).toUpperCase() + response.set.slice(1);
+  //     document.getElementById('Username-container').textContent = UserNameUppercase;
+  //     document.getElementById('title').textContent = UserNameUppercase + " Ämtli"
+  //   } else {
+  //     Username = null;
+  //   }
+  // } catch (error) {
+  //   console.error("Network or fetch error:", error);
+  // }
 }
 
 async function time() {

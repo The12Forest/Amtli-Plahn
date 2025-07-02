@@ -13,7 +13,6 @@ import {router as gamingtimeRouter} from "./Backend/routes/time/index.js"
 import {router as tasksRouter} from "./Backend/routes/tasks/index.js"
 import {router as userRouter} from "./Backend/routes/user/index.js"
 import {router as adminRouter} from "./Backend/routes/storage/index.js"
-import {router as tempRouter} from "./Backend/routes/temp/index.js"
 import {router as loginRouter} from "./Backend/routes/login/index.js"
 
 //Setting Variables
@@ -50,7 +49,6 @@ app.use("/api/time", gamingtimeRouter)
 app.use("/api/task", tasksRouter)
 app.use("/api/user", userRouter)
 app.use("/api/storage", adminRouter)
-app.use("/api/temp", tempRouter)
 app.use("/api/login", loginRouter)
 
 app.get('/Main', (req, res) => {res.redirect('/')});

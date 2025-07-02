@@ -1,5 +1,5 @@
-let basedomain = "https://server5.techsvc.de:2007"
-// let basedomain = "https://localhost:2007"
+// let basedomain = "https://server5.techsvc.de:2007"
+let basedomain = "https://localhost:2007"
 
 
 fetch(basedomain + "/api/user/all")
@@ -34,9 +34,11 @@ async function adminbutton() {
 
 
 async function userbutton(element) {
-  let response = await fetch(basedomain + "/api/temp/set/" + element);  let data = await response.text();
-  console.log(data + ":" + element);
-  window.location.href = (basedomain + "/user");
+//   let response = await fetch(basedomain + "/api/temp/set/" + element);  
+//   let data = await response.text();
+//   console.log(data + ":" + element);
+    document.cookie = "username=" + element + "; path=/";
+    window.location.href = (basedomain + "/user");
 }
 
 function delay(ms) {
