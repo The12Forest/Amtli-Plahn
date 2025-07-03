@@ -29,13 +29,13 @@ fetch(basedomain + "/api/user/all")
 
 
 async function adminbutton() {
-    window.location.href = (basedomain + "/admin");
+    window.location.href = '/admin';
 }
 
 
 async function userbutton(element) {
     document.cookie = "username=" + element + "; path=/";
-    window.location.href = (basedomain + "/user");
+    window.location.href = '/user';
 }
 
 function delay(ms) {

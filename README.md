@@ -8,3 +8,4 @@ Future Features:
 - Del admin account except for the last one
 - Send restore code over E-Mail
 - Schöne UI elemente anstat alert
+- Check on admin reset if all fields are filld and update it in relatime with an extra div to clear the content later

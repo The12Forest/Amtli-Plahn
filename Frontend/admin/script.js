@@ -180,7 +180,7 @@ async function delAdmin() {
 
 async function logout() {
   document.cookie = "userhash=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  location.reload(true);
+  window.location.href = '/';
 }
 
 async function loadsetting() {
