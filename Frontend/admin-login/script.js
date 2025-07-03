@@ -22,6 +22,10 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
     const response = await fetch(baseurl + "/api/login/" + hash);
 
     if (response.ok) {
+      const checkbox = document.getElementById("ssigned");
+      if (checkbox.checked) {
+        document.cookie = "userhash=" + hash + "; path=/";
+      }
       const html = await response.text();
       document.open();   
       document.write(html);    
@@ -33,6 +37,7 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
     console.error("Fehler beim Login:", error);
     alert("Login fehlgeschlagen.");
   }
+
 });
 
 async function sha256(message) {
@@ -105,3 +110,38 @@ async function adminreset(event) {
     location.reload();
   }
 } 
+
+document.getElementById("ssigneddiv").addEventListener("click", function (e) {
+  if (e.target.tagName !== "INPUT") {
+    const checkbox = document.getElementById("ssigned");
+    checkbox.checked = !checkbox.checked;
+  }
+});
+
+document.getElementById("ssignedlabel").addEventListener("click", function (e) {
+  if (e.target.tagName !== "INPUT") {
+    const checkbox = document.getElementById("ssigned");
+    checkbox.checked = !checkbox.checked;
+  }
+});
+
+async function startup() {
+  hash = document.cookie.split('; ').find(row => row.startsWith('userhash='))?.split('=')[1];
+  document.getElementById("ssigned").checked = true
+
+  try {
+    const response = await fetch(baseurl + "/api/login/" + hash);
+
+    if (response.ok) {
+      const checkbox = document.getElementById("ssigned");
+      const html = await response.text();
+      document.open();   
+      document.write(html);    
+      document.close();
+    }
+  } catch (error) {
+    console.error("Fehler beim Login cookie hass did not work:", error);
+  }
+}
+
+startup()

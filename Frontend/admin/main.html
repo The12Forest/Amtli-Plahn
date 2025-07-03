@@ -6,7 +6,7 @@
     <title>Admin Login</title>
     <link rel="stylesheet" href="/api/login/assets/style.css">
   </head>
-  <body>
+  <body id="body">
     <div class="SettingsButtons">
       <button onclick="loadsetting()" id="loadsettingbutton">Load Default Settings</button>
       <button onclick="savesetting()" id="savesettingbutton">Save as Default Setting</button>
@@ -126,10 +126,6 @@
           <input type="text" id="DelAdminName" placeholder="Admin-Name" />
           <input type="password" id="DelAdminPass" placeholder="Passwort" />
           <button onclick=" delAdmin()">Admin löschen</button>
-        </div>
-
-        <div class="logout" id="logoutdiv">
-          <button>Logout</button>
         </div>
       </div>
     </div>

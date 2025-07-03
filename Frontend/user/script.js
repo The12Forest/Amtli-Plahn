@@ -16,24 +16,8 @@ async function UpadteUsername() {
     document.getElementById('Username-container').textContent = UserNameUppercase;
     document.getElementById('title').textContent = UserNameUppercase + " Ämtli"
   } else {
-    console.log("Did not work")
+    console.log("Get username from cookie did not work")
   }
-
-  // try {
-  //   let response = await fetch(basedomain + "/api/temp/get");
-  //   if (response.ok) {
-  //     response = await response.json()
-  //     Username = String(response.set);
-
-  //     UserNameUppercase = response.set.charAt(0).toUpperCase() + response.set.slice(1);
-  //     document.getElementById('Username-container').textContent = UserNameUppercase;
-  //     document.getElementById('title').textContent = UserNameUppercase + " Ämtli"
-  //   } else {
-  //     Username = null;
-  //   }
-  // } catch (error) {
-  //   console.error("Network or fetch error:", error);
-  // }
 }
 
 async function time() {

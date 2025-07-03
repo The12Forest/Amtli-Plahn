@@ -60,6 +60,32 @@ gap: 0.5em;
   margin-bottom: 20px;
 }
 
+#ssigned {
+  border: none;
+  height: 12;
+  width: 12;
+  margin: 0;
+  user-select: none;
+  cursor: pointer;
+}
+
+#ssignedlabel{
+  font-size: 16px;
+  user-select: none;
+  cursor: pointer;
+}
+
+#ssigneddiv{
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #4caf50;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
 .resetadminbutton, .resetbutton, .initiate_reset {
   width: 100%;
   padding: 12px;
@@ -76,7 +102,7 @@ gap: 0.5em;
   margin-bottom: 20px;
 }
 
-.submitbutton:hover {
+.submitbutton:hover, #ssigneddiv:hover{
   background-color: #388e3c;
 }
 

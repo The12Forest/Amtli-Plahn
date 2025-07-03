@@ -178,6 +178,11 @@ async function delAdmin() {
   await fetch(baseurl + "/api/login/create/" + hashdeluser);
 }
 
+async function logout() {
+  document.cookie = "userhash=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  location.reload(true);
+}
+
 async function loadsetting() {
   await fetch(baseurl + "/api/storage/load")
   populateDropdownUser()
@@ -204,4 +209,22 @@ document.getElementById("DaySelectTaskDelete").addEventListener("change", functi
 });
 
 
-populateDropdownUser()
+
+
+async function start() {
+  if (document.cookie.split(';').some(cookie => cookie.trim().startsWith('userhash='))) {
+    const div = document.getElementById("body");
+    div.innerHTML += `
+      <div class="logoutbutton">
+        <div class="logout" id="logoutdiv">
+          <label>Logout and delete Cookie:</label>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>`
+  }
+
+  populateDropdownUser()
+}
+
+start()
+//! Only show button wen coockie is there and but it in a other div and make it functioning 

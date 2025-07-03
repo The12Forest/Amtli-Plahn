@@ -12,11 +12,12 @@
         <h2>Admin Login</h2>
         <input type="text" placeholder="Benutzername" required />
         <input type="password" placeholder="Passwort" required />
-        <!-- <label id="labelssigned">
-          <input type="checkbox" id="ssigned"> Stay signed in
-        </label> -->
         <button type="submit" class="submitbutton">Einloggen</button>
       </form>
+      <div id="ssigneddiv">
+        <input type="checkbox" id="ssigned">
+        <label for="ssigned" id="ssignedlabel">Stay signed in</label>
+      </div>
       <button class="resetadminbutton" id="resetadminbutton" onclick="adminresetpage()">Forgot Admin Password</button>
     </div>
     <script src="script.js"></script>

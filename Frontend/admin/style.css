@@ -42,7 +42,7 @@ label {
   font-weight: bold;
 }
 
-.Tasks, .Time, .Usermanagement, .AdminManagement {
+.Tasks, .Time, .Usermanagement, .AdminManagement, .logoutbutton {
   background-color: white;
   padding: 1.5rem;
   border-radius: 8px;
@@ -58,7 +58,7 @@ label {
 }
 
 @media (min-width: 768px) {
-  .Tasks, .Time, .Usermanagement, .AdminManagement {
+  .Tasks, .Time, .Usermanagement, .AdminManagement, .logoutbutton {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;

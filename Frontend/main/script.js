@@ -34,9 +34,6 @@ async function adminbutton() {
 
 
 async function userbutton(element) {
-//   let response = await fetch(basedomain + "/api/temp/set/" + element);  
-//   let data = await response.text();
-//   console.log(data + ":" + element);
     document.cookie = "username=" + element + "; path=/";
     window.location.href = (basedomain + "/user");
 }
