@@ -40,13 +40,16 @@ h1 {
 
 .tasks-button {
   background-color: rgb(0, 190, 10);
-  height: 70px;
-  padding-top: 2%;
-  padding-bottom: 4%;
-  border: 0cm;
+  /* height: 70px; */
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border: 0;
   font-size: 30px;
   width: 1%;
   flex: 1 1 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tasks-button:hover {
