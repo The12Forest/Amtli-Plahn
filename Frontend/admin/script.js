@@ -159,7 +159,13 @@ async function addAdmin() {
   let hashusercheck = await sha256(combinedcheck);
   let hashnewuser = await sha256(combinednew);
 
-  await fetch(baseurl + "/api/login/create/" + hashusercheck + "/" + hashnewuser);
+  let response = await fetch(baseurl + "/api/login/create/" + hashusercheck + "/" + username + "/" + hashnewuser);
+  if (response.ok) {
+    alert("Admin successfully created")
+  } else {
+    reason = await response.json();
+    alert("Error: " + reason.reason)
+  }
 }
 
 

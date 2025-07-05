@@ -1,5 +1,5 @@
-let baseurl = "https://server5.techsvc.de:2007"
-// let baseurl = "https://localhost:2007"
+// let baseurl = "https://server5.techsvc.de:2007"
+let baseurl = "https://localhost:2007"
 let execute = true
 let execute2 = true
 
