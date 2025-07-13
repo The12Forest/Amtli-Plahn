@@ -61,9 +61,18 @@ router.use("/deluser/:user", (req, res) => {
 router.get("/create/:user/:day/:time/:task/", (req, res) => {
   let userid = users.indexOf(req.params.user)
   if (userid !== -1) {
-    tasks[req.params.day][userid].push(req.params.task)
-    task_times[req.params.day][userid].push(req.params.time)    
-    console.log(logprefix + "Creating task: " + req.params.task + " for user: " + req.params.user + " with time: " + req.params.time)
+    if (req.params.day == 8) {
+      for (let d = 0; d < 5;) {
+        tasks[d][userid].push(req.params.task)
+        task_times[d][userid].push(req.params.time)    
+        console.log(logprefix + "Creating task: " + req.params.task + " for user: " + req.params.user + " with time: " + req.params.time)
+        ++d
+      }
+    } else {
+      tasks[req.params.day][userid].push(req.params.task)
+      task_times[req.params.day][userid].push(req.params.time)    
+      console.log(logprefix + "Creating task: " + req.params.task + " for user: " + req.params.user + " with time: " + req.params.time)
+    }
     res.send(tasks)
   } else {
     console.log(logprefix + "Creating task: But the user: " + req.params.user + " dose not exist.")

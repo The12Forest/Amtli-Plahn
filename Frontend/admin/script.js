@@ -55,6 +55,13 @@ async function createTask() {
   const taskname = document.getElementById("Taskname-create").value;
   const time = document.getElementById("TaskTime").value;
   const day = getDayValue("DaySelectTaskCreate");
+  if (taskname == "") {
+    alert("Fill alltextboxes")
+    return
+  }
+  if (time == "") {
+    alert("Fill alltextboxes")
+  }
   try {
     await fetch(baseurl + "/api/task/create/" + username + "/" + day + "/" + time + "/" + encodeURIComponent(taskname));
   } catch (error) {
@@ -69,10 +76,14 @@ async function deleteTask() {
   const username = value.charAt(0).toLowerCase() + value.slice(1);
   const taskDropdown = document.getElementById("TaskSelectDel");
   const taskname = taskDropdown.value;
-  try {
-    await fetch(baseurl + "/api/task/del/" + username + "/" + day + "/" + taskname);
-  } catch (error) {
-    console.error("Error deleting task:", error);
+  if (taskname == "") {
+    alert("Nothing selected")
+  } else {
+    try {
+      await fetch(baseurl + "/api/task/del/" + username + "/" + day + "/" + taskname);
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
   }
   populatetask()
 }
@@ -181,7 +192,7 @@ async function delAdmin() {
   let combineddel = `${username}:${passwd}`;
   let hashdeluser = await sha256(combineddel);
 
-  await fetch(baseurl + "/api/login/create/" + hashdeluser);
+  await fetch(baseurl + "/api/login/delete/" + hashdeluser);
 }
 
 async function logout() {
@@ -198,21 +209,23 @@ async function savesetting() {
   await fetch(baseurl + "/api/storage/save")
 }
 
-document.getElementById("UserSelectTaskDelete").addEventListener("change", function () {
-  populatetask(this.value, "UserSelectTaskDelete");
-});
+window.onload = function () {
+  document.getElementById("UserSelectTaskDelete").addEventListener("change", function () {
+    populatetask(this.value, "UserSelectTaskDelete");
+  });
 
-document.getElementById("UserSelectTimeSet").addEventListener("change", function () {
-  timesetupdate(this.value, "TimeSetInput");
-});
+  document.getElementById("UserSelectTimeSet").addEventListener("change", function () {
+    timesetupdate(this.value, "TimeSetInput");
+  });
 
-document.getElementById("UserSelectTimeAdd").addEventListener("change", function () {
-  timesetupdate(this.value, "TimeAddInput");
-});
+  document.getElementById("UserSelectTimeAdd").addEventListener("change", function () {
+    timesetupdate(this.value, "TimeAddInput");
+  });
 
-document.getElementById("DaySelectTaskDelete").addEventListener("change", function () {
-  populatetask();
-});
+  document.getElementById("DaySelectTaskDelete").addEventListener("change", function () {
+    populatetask();
+  });
+};
 
 
 
