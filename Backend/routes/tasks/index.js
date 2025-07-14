@@ -103,10 +103,11 @@ router.get("/done/:user/:day/:task/", (req, res) => {
   let taskid = req.params.task
   if (userid !== -1) {
     if (taskid !== -1) {
+      console.log(logprefix + "Task " + req.params.task + " of userid " + req.params.user + " marked as done.")
+      fetch(baseurl + "/api/time/" + req.params.user + "/" + task_times[req.params.day][userid][taskid])
+      console.log(logprefix + task_times[req.params.day][userid][taskid])
       tasks[req.params.day][userid].splice(taskid, 1)
       task_times[req.params.day][userid].splice(taskid, 1)
-      console.log(logprefix + "Task " + req.params.task + " of userid " + req.params.user + " marked as done.")
-      fetch(baseurl + "/api/time/" + req.params.user + "/" + task_times[req.params.day][userid])
       res.send(tasks)
     } else {
       res.send("Task dose not exist.")

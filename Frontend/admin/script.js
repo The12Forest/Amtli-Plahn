@@ -209,6 +209,12 @@ async function savesetting() {
   await fetch(baseurl + "/api/storage/save")
 }
 
+async function saveshutdownsetting() {
+  await fetch(baseurl + "/api/task/load")
+  await fetch(baseurl + "/api/storage/save")
+  await fetch(baseurl + "/api/shutdown")
+}
+
 window.onload = function () {
   document.getElementById("UserSelectTaskDelete").addEventListener("change", function () {
     populatetask(this.value, "UserSelectTaskDelete");

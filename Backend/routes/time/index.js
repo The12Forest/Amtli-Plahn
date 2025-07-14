@@ -1,8 +1,12 @@
 import express from "express"
+import cron from 'node-cron';
 import fs from 'fs';
 const router = express.Router()
 const logprefix = "TimeRouter:      "
 let time = []
+let isGaming = []
+let users = []
+
 
 
 router.use("/save", (req, res) => {
@@ -15,61 +19,84 @@ router.use("/save", (req, res) => {
 router.use("/load", (req, res) => {
   time = JSON.parse(fs.readFileSync("./Backend/saves/time.json"))
   console.log(logprefix + "Times loaded:         "+ JSON.stringify(time))
+  users = JSON.parse(fs.readFileSync("./Backend/saves/user.json"))
+  console.log(logprefix + "Users loaded:         "+ JSON.stringify(users))
+  isGaming = [];
+  users.forEach(() => isGaming.push(false));
   res.json(time)
 })
 
 router.use("/deluser/:user", (req, res) => {
-  let userID = time.indexOf(req.params.user)
-  if (time.indexOf(req.params.user) == -1) {
+  let userID = users.indexOf(req.params.user)
+  if (userID == -1) {
     res.send("User " + req.params.user + " dose not exists.")
     console.log(logprefix + "Delete user: User " + req.params.user + " dose not exists.")
   } else {
-    time.splice(userID, 2)
+    time.splice(userID, 1)
+    users.splice(userID, 1)
+    isGaming.splice(userID, 1)
     res.send("User was deleted.")
     console.log(logprefix + "User deleted: " + req.params.user)
   }
 })
 
 router.use("/set/:userName/:time", (req, res) => {
-  let usertime = time.indexOf(req.params.userName)
-  usertime = parseInt(usertime)
-  if (usertime == -1) {
-    time.push(req.params.userName)
+  let userID = time.indexOf(req.params.userName)
+  if (userID == -1) {
+    users.push(req.params.userName)
     time.push(req.params.time)
-    usertime = time.indexOf(req.params.userName)
-    usertime = parseInt(usertime)
+    userID = users.indexOf(req.params.userName)
     console.log(logprefix + "User " + req.params.userName + " created.")
   }
-  usertime = usertime + 1
-  time[usertime] = req.params.time
-  res.status(200).json({"ok": true, "username": req.params.userName, "time": time[usertime]})
-  console.log(logprefix + "Time update: User "+ req.params.userName + " to " + time[usertime])
+  time[userID] = req.params.time
+  res.status(200).json({"ok": true, "username": req.params.userName, "time": time[userID]})
+  console.log(logprefix + "Time update: User "+ req.params.userName + " to " + time[userID])
 })
 
+router.use("/isgaming/:userName/:set", (req, res) => {
+  let userID = users.indexOf(req.params.userName)
+  let set
+  if (req.params.set == "true") {
+    if (time[userID] > 0) {
+      set = true
+    } else {
+      set = false
+    }
+  } else if (req.params.set == "false") {
+    set = false
+  } else {
+    return
+  }
+  isGaming[userID] = set;
+  res.json({"Okay":true,"IsGaming":Boolean(req.params.set)})
+  console.log(logprefix + 'Changing "IsGaming" for user: ' + req.params.userName + ' and set to: ' + Boolean(req.params.set))
+})
+
+router.use("/isgaming/:userName", (req, res) => {
+  let userID = users.indexOf(req.params.userName)
+  let isGmaingres = Boolean(isGaming[userID])
+  res.json({"Okay":true,"IsGaming":isGmaingres})
+  console.log(logprefix + 'Searched "IsGaming" for user: ' + req.params.userName + ' and responded with: ' + isGmaingres)
+})
 
 router.use("/:userName/:time", (req, res) => {
-  let usertime = time.indexOf(req.params.userName)
-  usertime = parseInt(usertime)
-  if (usertime == -1) {
-    time.push(req.params.userName)
+  let userID = users.indexOf(req.params.userName)
+  if (userID == -1) {
+    users.push(req.params.userName)
     time.push("0")
-    usertime = time.indexOf(req.params.userName)
-    usertime = parseInt(usertime)
+    userID = users.indexOf(req.params.userName)
     console.log(logprefix + "User " + req.params.userName + " created.")
   }
-  usertime = usertime + 1
-  time[usertime] = String(parseInt(time[usertime]) + parseInt(req.params.time))
-  res.status(200).json({"ok": true, "username": req.params.userName, "time": time[usertime]})
-  console.log(logprefix + "Time update: User "+ req.params.userName + " to " + time[usertime])
+  time[userID] = String(parseInt(time[userID]) + parseInt(req.params.time))
+  res.status(200).json({"ok": true, "username": req.params.userName, "time": time[userID]})
+  console.log(logprefix + "Time update: User "+ req.params.userName + " to " + time[userID])
 })
 
 router.use("/:userName", (req, res) => {
-  let usertime = time.indexOf(req.params.userName)
-  usertime = parseInt(usertime)
-  if (usertime !== -1) {
-    usertime = usertime + 1
-    res.status(200).json({"ok": true, "username": req.params.userName, "time": time[usertime]})
-    console.log(logprefix + "Searched for UserTime User: " + req.params.userName + " Time: " + time[usertime])
+  let userID = users.indexOf(req.params.userName)
+  if (userID !== -1) {
+    res.status(200).json({"ok": true, "username": req.params.userName, "time": time[userID]})
+    console.log(logprefix + "Searched for UserTime User: " + req.params.userName + " Time: " + time[userID])
   } else {
     res.status(404).json({"ok": false, "username": req.params.userName, "time": "UserNotFound"})
     console.log(logprefix + "Searched for UserTime User: " + req.params.userName + " but he doesn't exist")
@@ -77,7 +104,18 @@ router.use("/:userName", (req, res) => {
 })
 
 
-
+cron.schedule('*/1 * * * *', () => {
+  isGaming.forEach((value, index) => {
+    if (value === true) {
+      let timeInt = parseInt(time[index])
+      if (timeInt > 0) {
+        time[index] = String(timeInt - 1)
+      } else {
+        isGaming[index] = false
+      }
+    }
+  });
+});
 
 
 router.use("", (req, res) => res.status(404).json({error: "not found"}))

@@ -1,11 +1,14 @@
 let basedomain = "https://server5.techsvc.de:2007"
 // let basedomain = "https://localhost:2007"
 let Username
+let isGaming
 
 async function start() {
   await UpadteUsername();
   await time()
   await tasks()
+  await isGamingUpdate()
+  // Timeupdatewhilegaming()
 }
 
 async function UpadteUsername() {
@@ -18,6 +21,39 @@ async function UpadteUsername() {
   } else {
     console.log("Get username from cookie did not work")
   }
+}
+
+async function isGamingUpdate() {
+  const div = document.getElementById("Starttimebutton");
+  let response = await fetch(basedomain + "/api/time/isgaming/" + Username)
+  response = await response.json()
+  if (response.Okay) {
+    isGaming = response.IsGaming
+    if (isGaming) {
+      div.innerHTML = "Stop Gaming"
+    } else {
+      div.innerHTML = "Start Gaming"
+    }
+  }
+}
+
+async function Starttime() {
+  await fetch(basedomain + "/api/time/isgaming/" + Username + "/" + !isGaming)
+  await new Promise(r => setTimeout(r, 100));
+  await isGamingUpdate()
+  if (isGaming) {
+    Timeupdatewhilegaming()
+  }
+}
+
+async function Timeupdatewhilegaming() {
+  alert("Gamingtime started")
+  while (isGaming) {
+    await new Promise(r => setTimeout(r, 60000));
+    await time()
+    await isGamingUpdate()
+  }
+  alert("No time left!")
 }
 
 async function time() {
@@ -76,4 +112,7 @@ async function userbutton(task) {
     reloadtask();
 }
 
+
+
 start()
+

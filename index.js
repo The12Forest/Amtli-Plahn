@@ -14,6 +14,7 @@ import {router as tasksRouter} from "./Backend/routes/tasks/index.js"
 import {router as userRouter} from "./Backend/routes/user/index.js"
 import {router as adminRouter} from "./Backend/routes/storage/index.js"
 import {router as loginRouter} from "./Backend/routes/login/index.js"
+import {router as shutdownRouter} from "./Backend/routes/shutdown/index.js"
 
 //Setting Variables
 const app = express();
@@ -50,6 +51,7 @@ app.use("/api/task", tasksRouter)
 app.use("/api/user", userRouter)
 app.use("/api/storage", adminRouter)
 app.use("/api/login", loginRouter)
+app.use("/api/shutdown", shutdownRouter)
 
 app.get('/Main', (req, res) => {res.redirect('/')});
 app.use("", (req, res) => {res.redirect('/')})
