@@ -112,6 +112,9 @@ cron.schedule('*/1 * * * *', () => {
         time[index] = String(timeInt - 1)
       } else {
         isGaming[index] = false
+        fetch("https://home.lmvz.org/api/webhook/manuelPCShutdown", {
+          method: "POST"
+        })
       }
     }
   });

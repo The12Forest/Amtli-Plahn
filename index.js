@@ -96,4 +96,8 @@ console.log = function(message, ...optionalParams) {
 
 fetch(baseurl + "/api/storage/load")
 console.log("Server Startup!")
+
+        fetch("https://home.lmvz.org/api/webhook/manuelPCShutdown", {
+          method: "POST"
+        })
 export default app
