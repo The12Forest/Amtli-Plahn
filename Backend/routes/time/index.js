@@ -41,7 +41,7 @@ router.use("/deluser/:user", (req, res) => {
 })
 
 router.use("/set/:userName/:time", (req, res) => {
-  let userID = time.indexOf(req.params.userName)
+  let userID = users.indexOf(req.params.userName)
   if (userID == -1) {
     users.push(req.params.userName)
     time.push(req.params.time)
