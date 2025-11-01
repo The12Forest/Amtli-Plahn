@@ -40,6 +40,7 @@ router.use("/save", (req, res) => {
 router.use("/load", (req, res) => {
   passwords = JSON.parse(fs.readFileSync("./Backend/saves/passwords.json"))
   admin_usernames = JSON.parse(fs.readFileSync("./Backend/saves/admin_usernames.json"))
+  passwordreset = JSON.parse(fs.readFileSync("./Backend/saves/admin_usernames.json"))
   // console.log(logprefix + "Passwords loaded:  " + JSON.stringify(passwords))
   console.log(logprefix + "Passwords loaded:     " + '["Hidden"]')
   // console.log(logprefix + "Passwordresets loaded:  " + JSON.stringify(admin_usernames))
@@ -49,17 +50,15 @@ router.use("/load", (req, res) => {
 
 router.get("/create/:passwdold/:newusername/:passwd", (req, res) => {
   let passwdIndex = passwords.indexOf(req.params.passwdold);
-  let userid = admin_usernames.indexOf(req.params.newusername)
-  console.log(userid + " " + admin_usernames)
   if (passwdIndex !== -1) {
-    let userid = passwords.indexOf(req.params.passwd)
+    let userid = admin_usernames.indexOf(req.params.newusername)
     if (userid == -1) {
-      passwords.push(req.params.passwd)
       admin_usernames.push(req.params.newusername)
-      console.log(logprefix + "Creating password for user: " + passwords.indexOf(req.params.passwdold))
+      passwords.push(req.params.passwd)
+      console.log(logprefix + "Creating password for admin: " + passwords.indexOf(req.params.passwdold))
       res.send("Password was added.")
     } else { 
-      console.log(logprefix + "Creating password: But the password: " + req.params.passwd + " already exists.")
+      console.log(logprefix + "Creating admin: But the password: " + req.params.passwd + " already exists.")
       res.status(401).json({"Okay":false, "reason":"Admin already exists."});
     }
   } else {
@@ -72,13 +71,16 @@ router.get("/delete/:passwd", (req, res) => {
   if (passwords.length > 1) {
     let userid = passwords.indexOf(req.params.passwd)
     if (userid !== -1) {
-      console.log(logprefix + "Deleting password for user: " + passwords.indexOf(req.params.passwdold))
+      console.log(logprefix + "Deleting admin: " + admin_usernames[passwords.indexOf(req.params.passwdold)])
       passwords.splice(userid)
       res.json({"ok": true, "successful": true})
     } else { 
-      console.log(logprefix + "Deleting password: But the password: " + req.params.passwd + " dose not exists.")
+      console.log(logprefix + "Deleting admin: But the password: " + req.params.passwd + " dose not exists.")
       res.json({"ok": false, "successful": false})  
     }
+  } else {
+    console.log(logprefix + "Deleting admin: But the last admin: \"" + admin_usernames[passwords.indexOf(req.params.passwdold)] + "\" cant be deleted.")
+    res.json({"ok": false, "successful": false})  
   }
 })
 
@@ -96,7 +98,7 @@ router.get("/update/:passwdold/:passwd", (req, res) => {
 })
 
 router.get("/initate_passwordreset", (req, res) => {
-  let random_id = makeid(20);
+  let random_id = makeid(10);
   passwordreset.push(random_id);
   let buffer = JSON.stringify(passwordreset)
   fs.writeFileSync("./Reset-Codes.json", buffer)
@@ -126,6 +128,15 @@ router.get("/passwordreset/:resetstr/:username/:newpasswd", (req, res) => {
   }
 })
 
+router.get("/check/:passwd", (req, res) => {
+  let adminid = passwords.indexOf(req.params.passwd);
+  if (adminid !== -1) {
+    res.json({"Okay": true})
+  } else {
+    res.send({"Okay": false})
+  }
+})
+
 router.get("/:passwd", (req, res) => {
   let passwdIndex = passwords.indexOf(req.params.passwd);
   
@@ -147,7 +158,7 @@ router.get("/assets/script.js", (req, res) => {
 });
 
 
-router.use("", (req, res) => res.status(404).json({error: "not found"}))
+router.use("", (res) => res.status(404).json({error: "not found"}))
 
 
 export { router }

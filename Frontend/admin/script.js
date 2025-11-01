@@ -63,7 +63,7 @@ async function createTask() {
     alert("Fill alltextboxes")
   }
   try {
-    await fetch(baseurl + "/api/task/create/" + username + "/" + day + "/" + time + "/" + encodeURIComponent(taskname));
+    await fetch(baseurl + "/api/task/create/" + username + "/" + day + "/" + time + "/" + encodeURIComponent(taskname) + "/" + hash);
   } catch (error) {
     console.error("Error creating task:", error);
   }

@@ -58,8 +58,9 @@ router.use("/deluser/:user", (req, res) => {
   }
 })
 
-router.get("/create/:user/:day/:time/:task/", (req, res) => {
+router.get("/create/:user/:day/:time/:task/:passwd", (req, res) => {
   let userid = users.indexOf(req.params.user)
+  //!! Add check of admin passwd here (/api/login/check/:passwd)
   if (userid !== -1) {
     if (req.params.day == 8) {
       for (let d = 0; d < 5;) {
