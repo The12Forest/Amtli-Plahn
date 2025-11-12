@@ -34,7 +34,7 @@ const credentials = { key: privateKey, cert: certificate };
 
 app.use('/', express.static(path.join(__dirname, 'Frontend', 'main')));
 app.use('/user', express.static(path.join(__dirname, 'Frontend', 'user')));
-app.use('/admin', express.static(path.join(__dirname, 'Frontend', 'admin-login')));
+app.use('/admin', express.static(path.join(__dirname, 'Frontend', 'admin_login')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'Frontend', 'main'));
@@ -43,7 +43,7 @@ app.get('/user', (req, res) => {
   res.sendFile(path.join(__dirname, 'Frontend', 'user', 'main.html'));
 });
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Frontend', 'admin-login', 'main.html'));
+  res.sendFile(path.join(__dirname, 'Frontend', 'admin_login', 'main.html'));
 });
 
 app.use("/api/time", gamingtimeRouter)
@@ -97,7 +97,4 @@ console.log = function(message, ...optionalParams) {
 fetch(baseurl + "/api/storage/load")
 console.log("Server Startup!")
 
-        fetch("https://home.lmvz.org/api/webhook/manuelPCShutdown", {
-          method: "POST"
-        })
 export default app
