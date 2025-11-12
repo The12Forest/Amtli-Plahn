@@ -31,6 +31,6 @@ router.use("/log/:logmessage", (req, res) => {
     res.send("Added message to log.")
 })
 
-router.use("", (req, res) => res.status(404).json({error: "not found"}))
+router.use("", (req, res) => res.status(404).json({"ok": false, "error": "not found"}))
 
 export {router}

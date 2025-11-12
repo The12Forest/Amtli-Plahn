@@ -23,7 +23,7 @@ const __dirname = path.dirname(__filename);
 
 //Ports Definieren
 const httpPort = 80;
-const httpsPort = 2007;
+const httpsPort = 10108;
 
 // SSL-Zertifikate laden
 const certPath = path.join(__dirname, 'Cert');
@@ -37,7 +37,7 @@ app.use('/user', express.static(path.join(__dirname, 'Frontend', 'user')));
 app.use('/admin', express.static(path.join(__dirname, 'Frontend', 'admin-login')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Frontend', 'main', 'main.html'));
+  res.sendFile(path.join(__dirname, 'Frontend', 'main'));
 });
 app.get('/user', (req, res) => {
   res.sendFile(path.join(__dirname, 'Frontend', 'user', 'main.html'));

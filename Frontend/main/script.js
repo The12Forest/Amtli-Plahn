@@ -1,4 +1,4 @@
-let basedomain = "https://server5.techsvc.de:2007"
+let baseurl = "https://discord.techsvc.de:10108"
 // let basedomain = "https://localhost:2007"
 
 
