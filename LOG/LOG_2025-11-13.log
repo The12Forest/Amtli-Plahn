@@ -1,34 +1,12 @@
-2025-11-13 08:23:26.171      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:24:39.143      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:24:40.235      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:24:40.833      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:24:41.151      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:24:41.577      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:24:42.033      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:24:42.413      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:25:00.088      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:25:29.149      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:25:31.063      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:26:10.920      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:26:18.464      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:27:07.398      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:27:14.770      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:27:23.894      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:28:02.470      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:28:23.067      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:29:05.382      TimeRouter:      Searched for UserTime User: manuel Time: 0 
-2025-11-13 08:29:05.468      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
-2025-11-13 08:29:05.496      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
-2025-11-13 08:29:05.548      TimeRouter:      Searched "IsGaming" for user: manuel and responded with: false 
-2025-11-13 08:29:36.093      TimeRouter:      Searched for UserTime User: manuel Time: 0 
-2025-11-13 08:29:36.147      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
-2025-11-13 08:29:36.195      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
-2025-11-13 08:29:36.276      TimeRouter:      Searched "IsGaming" for user: manuel and responded with: false 
-2025-11-13 08:29:55.195      TimeRouter:      Searched for UserTime User: manuel Time: 0 
-2025-11-13 08:29:55.449      TaskRouter:      Searched for tasks of user: manuel and the tasks where ,, 
-2025-11-13 08:29:55.532      TaskRouter:      Searched for task-times of user: manuel and the task-times where  
-2025-11-13 08:29:55.692      TimeRouter:      Searched "IsGaming" for user: manuel and responded with: false 
-2025-11-13 08:37:09.496      TimeRouter:      Changing "IsGaming" for user: manuel and set to: true 
-2025-11-13 08:37:09.624      TimeRouter:      Searched "IsGaming" for user: manuel and responded with: false 
-2025-11-13 08:37:25.043      UserRouter:      Searched for users: manuel,silvan,david 
-2025-11-13 08:37:27.012      UserRouter:      Searched for users: manuel,silvan,david 
+2025-11-13 09:07:03.067      Server Startup! 
+2025-11-13 09:07:03.070      HTTPS server running on port 10108 
+2025-11-13 09:07:03.069      HTTP server running on port 80 
+2025-11-13 09:07:03.083      AdminRouter:     All data loaded. 
+2025-11-13 09:07:03.103      TaskRouter:      Tasks loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-11-13 09:07:03.103      TaskRouter:      Times loaded:         [[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]],[[],[],[]]] 
+2025-11-13 09:07:03.103      TaskRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-11-13 09:07:03.107      UserRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-11-13 09:07:03.109      TimeRouter:      Times loaded:         ["0","0","0"] 
+2025-11-13 09:07:03.110      TimeRouter:      Users loaded:         ["manuel","silvan","david"] 
+2025-11-13 09:07:03.112      LoginRouter:     Usernames loaded:     ["Hidden"] 
+2025-11-13 09:07:03.112      LoginRouter:     Passwords loaded:     ["Hidden"] 
