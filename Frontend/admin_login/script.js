@@ -1,5 +1,5 @@
-let baseurl = "https://discord.techsvc.de:10108"
-// let baseurl = "https://localhost:2007"
+// let basedomain = "https://discord.techsvc.de:10108"
+let basedomain = "https://localhost:10108"
 let execute = true
 let execute2 = true
 
@@ -19,7 +19,7 @@ document.querySelector(".login-form").addEventListener("submit", async (e) => {
 
   try {
     // Statt JSON bekommst du nun HTML zurück
-    const response = await fetch(baseurl + "/api/login/" + hash);
+    const response = await fetch(basedomain + "/api/login/" + hash);
 
     if (response.ok) {
       const checkbox = document.getElementById("ssigned");
@@ -67,7 +67,7 @@ async function adminresetpage() {
 
 
 async function initiate_reset() {
-  const response = await fetch(baseurl + "/api/login/initate_passwordreset");
+  const response = await fetch(basedomain + "/api/login/initate_passwordreset");
   if (response.ok) {
     alert("Reset-Code wurde erstellt und auf dem Server gespeichert. Bitte frage deinen Administrator ob er dir diesen aushändigen kann.")
   }
@@ -99,13 +99,13 @@ async function adminreset(event) {
   const combined = `${username}:${password1}`;
   const hash = await sha256(combined);
 
-  let response = await fetch(baseurl + "/api/login/passwordreset/" + resetcode + "/" + username + "/" + hash)
+  let response = await fetch(basedomain + "/api/login/passwordreset/" + resetcode + "/" + username + "/" + hash)
   response = await response.json()
 
   if (!response.Okay) {
     alert("Error: " + response.reason)
   } else {
-    await fetch(baseurl + "/login/save") 
+    await fetch(basedomain + "/login/save") 
     alert("Passwort erfolgreich geändert.")
     location.reload();
   }
@@ -130,7 +130,7 @@ async function startup() {
   document.getElementById("ssigned").checked = true
 
   try {
-    const response = await fetch(baseurl + "/api/login/" + hash);
+    const response = await fetch(basedomain + "/api/login/" + hash);
 
     if (response.ok) {
       const checkbox = document.getElementById("ssigned");

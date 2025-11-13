@@ -1,5 +1,5 @@
-let baseurl = "https://discord.techsvc.de:10108"
-// let basedomain = "https://localhost:2007"
+// let baseurl = "https://discord.techsvc.de:10108"
+let basedomain = "https://localhost:10108"
 
 
 fetch(basedomain + "/api/user/all")

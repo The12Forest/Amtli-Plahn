@@ -17,11 +17,11 @@
         <label for="Taskname-create">Task create:</label>
         <input type="text" id="Taskname-create" placeholder="Neue Aufgabe" />
         <input type="number" id="TaskTime" placeholder="Zeit in Minuten" />
-        <select class="UserSelect" id="UserSelectTaskCreate">
+        <select title="UserSelectTaskCreate" class="UserSelect" id="UserSelectTaskCreate">
           <option>Loading...</option>
         </select>
         <div class="TaskCreateDay">
-          <select class="DaySelectCreate" id="DaySelectTaskCreate">
+          <select title="DaySelectTaskCreate" class="DaySelectCreate" id="DaySelectTaskCreate">
             <option value="7">Today</option>
             <option value="8">Whole Week</option>
             <option value="1">Monday</option>
@@ -43,7 +43,7 @@
           <option>Loading...</option>
         </select>
 
-        <select class="DaySelect" id="DaySelectTaskDelete">
+        <select title="DaySelectTaskDelete" class="DaySelect" id="DaySelectTaskDelete">
             <option value="7">Today</option>
             <option value="1">Monday</option>
             <option value="2">Tuesday</option>
@@ -54,7 +54,7 @@
             <option value="0">Sunday</option>
         </select>
 
-        <select class="TaskSelectDel" id="TaskSelectDel">
+        <select title="TaskSelectDel" class="TaskSelectDel" id="TaskSelectDel">
           <option>Loading...</option>
         </select>
 
@@ -97,7 +97,7 @@
 
         <div class="DelUser" id="DelUserManagement">
           <label for="DelUserManagement">Delete user:</label>
-          <select id="DelUserInput" class="UserSelect">
+          <select title="UserSelectUserDelete" id="DelUserInput" class="UserSelect">
             <option>Loading...</option>
           </select>
           <button onclick="delUser()">Benutzer löschen</button>

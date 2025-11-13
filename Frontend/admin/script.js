@@ -8,7 +8,7 @@ function getDayValue(id) {
 
 async function populateDropdownUser() {
   try {
-    const response = await fetch(baseurl + "/api/user/all");
+    const response = await fetch(basedomain + "/api/user/all");
     const names = await response.json();
     const dropdowns = document.getElementsByClassName('UserSelect');
     for (let dropdown of dropdowns) {
@@ -32,7 +32,7 @@ async function populatetask() {
   try {
     const user = document.getElementById("UserSelectTaskDelete").value;
     const day = getDayValue("DaySelectTaskDelete");
-    const response = await fetch(baseurl + "/api/task/all/" + user + "/" + day);
+    const response = await fetch(basedomain + "/api/task/all/" + user + "/" + day);
     const tasks = await response.json();
     const dropdowns = document.getElementsByClassName('TaskSelectDel');
     for (let dropdown of dropdowns) {
@@ -63,7 +63,7 @@ async function createTask() {
     alert("Fill alltextboxes")
   }
   try {
-    await fetch(baseurl + "/api/task/create/" + username + "/" + day + "/" + time + "/" + encodeURIComponent(taskname) + "/" + hash);
+    await fetch(basedomain + "/api/task/create/" + username + "/" + day + "/" + time + "/" + encodeURIComponent(taskname) + "/" + hash);
   } catch (error) {
     console.error("Error creating task:", error);
   }
@@ -80,7 +80,7 @@ async function deleteTask() {
     alert("Nothing selected")
   } else {
     try {
-      await fetch(baseurl + "/api/task/del/" + username + "/" + day + "/" + taskname);
+      await fetch(basedomain + "/api/task/del/" + username + "/" + day + "/" + taskname);
     } catch (error) {
       console.error("Error deleting task:", error);
     }
@@ -90,7 +90,7 @@ async function deleteTask() {
 
 
 async function timesetupdate(user, element) {
-  const response = await fetch(baseurl + "/api/time/" + user);
+  const response = await fetch(basedomain + "/api/time/" + user);
   const data = await response.json();
   const time = data.time;
   const input = document.getElementById(element);
@@ -100,7 +100,7 @@ async function timesetupdate(user, element) {
 async function setTime() {
   user = document.getElementById("UserSelectTimeSet").value
   time = document.getElementById("TimeSetInput").value
-  await fetch(baseurl + "/api/time/set/" + user + "/" + time);
+  await fetch(basedomain + "/api/time/set/" + user + "/" + time);
   timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
   timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
 }
@@ -108,20 +108,20 @@ async function setTime() {
 async function addTime() {
   user = document.getElementById("UserSelectTimeAdd").value
   time = document.getElementById("TimeAddInput").value
-  await fetch(baseurl + "/api/time/" + user + "/" + time);
+  await fetch(basedomain + "/api/time/" + user + "/" + time);
   timesetupdate(document.getElementById("UserSelectTimeSet").value, "TimeSetInput")
   timesetupdate(document.getElementById("UserSelectTimeAdd").value, "TimeAddInput")
 }
 
 async function addUser() {
   user = document.getElementById("AddUserInput").value
-  await fetch(baseurl + "/api/user/add/" + user);
+  await fetch(basedomain + "/api/user/add/" + user);
   populateDropdownUser()
 }
 
 async function delUser() {
   user = document.getElementById("DelUserInput").value
-  await fetch(baseurl + "/api/user/del/" + user);
+  await fetch(basedomain + "/api/user/del/" + user);
   populateDropdownUser()
 }
 
@@ -146,7 +146,7 @@ async function changePasswd() {
   let combinednew = `${usernameold}:${passwordnew1}`;
   let hashold = await sha256(combinedold);
   let hashnew = await sha256(combinednew);
-  await fetch(baseurl + "/api/login/update/" + hashold + "/" + hashnew);
+  await fetch(basedomain + "/api/login/update/" + hashold + "/" + hashnew);
 }
 
 async function addAdmin() {
@@ -170,7 +170,7 @@ async function addAdmin() {
   let hashusercheck = await sha256(combinedcheck);
   let hashnewuser = await sha256(combinednew);
 
-  let response = await fetch(baseurl + "/api/login/create/" + hashusercheck + "/" + username + "/" + hashnewuser);
+  let response = await fetch(basedomain + "/api/login/create/" + hashusercheck + "/" + username + "/" + hashnewuser);
   if (response.ok) {
     alert("Admin successfully created")
   } else {
@@ -192,7 +192,7 @@ async function delAdmin() {
   let combineddel = `${username}:${passwd}`;
   let hashdeluser = await sha256(combineddel);
 
-  await fetch(baseurl + "/api/login/delete/" + hashdeluser);
+  await fetch(basedomain + "/api/login/delete/" + hashdeluser);
 }
 
 async function logout() {
@@ -201,18 +201,18 @@ async function logout() {
 }
 
 async function loadsetting() {
-  await fetch(baseurl + "/api/storage/load")
+  await fetch(basedomain + "/api/storage/load")
   populateDropdownUser()
 }
 
 async function savesetting() {
-  await fetch(baseurl + "/api/storage/save")
+  await fetch(basedomain + "/api/storage/save")
 }
 
 async function saveshutdownsetting() {
-  await fetch(baseurl + "/api/task/load")
-  await fetch(baseurl + "/api/storage/save")
-  await fetch(baseurl + "/api/shutdown")
+  await fetch(basedomain + "/api/task/load")
+  await fetch(basedomain + "/api/storage/save")
+  await fetch(basedomain + "/api/shutdown")
 }
 
 window.onload = function () {

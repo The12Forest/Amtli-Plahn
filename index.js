@@ -26,18 +26,13 @@ const httpPort = 80;
 const httpsPort = 10108;
 
 // SSL-Zertifikate laden
-const certPath = path.join(__dirname, 'Cert');
-const privateKey = fs.readFileSync(path.join(certPath, 'key.pem'), 'utf8');
-const certificate = fs.readFileSync(path.join(certPath, 'cert.pem'), 'utf8');
+const privateKey = fs.readFileSync("./Cert/key.pem", 'utf8');
+const certificate = fs.readFileSync("./Cert/cert.pem", 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 
 
-app.use('/', express.static(path.join(__dirname, 'Frontend', 'main')));
-app.use('/user', express.static(path.join(__dirname, 'Frontend', 'user')));
-app.use('/admin', express.static(path.join(__dirname, 'Frontend', 'admin_login')));
-
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Frontend', 'main'));
+  res.sendFile(__dirname + "/Frontend/main/main.html");
 });
 app.get('/user', (req, res) => {
   res.sendFile(path.join(__dirname, 'Frontend', 'user', 'main.html'));
@@ -46,6 +41,14 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'Frontend', 'admin_login', 'main.html'));
 });
 
+
+
+app.use('/', express.static("./Frontend/main"));
+app.use('/user', express.static("./Frontend/user"));
+app.use('/admin', express.static("./Frontend/admin_login"));
+
+
+
 app.use("/api/time", gamingtimeRouter)
 app.use("/api/task", tasksRouter)
 app.use("/api/user", userRouter)
@@ -53,8 +56,8 @@ app.use("/api/storage", adminRouter)
 app.use("/api/login", loginRouter)
 app.use("/api/shutdown", shutdownRouter)
 
-app.get('/Main', (req, res) => {res.redirect('/')});
-app.use("", (req, res) => {res.redirect('/')})
+// app.get('/Main', (req, res) => {res.redirect('/')});
+// app.use("", (req, res) => {res.redirect('/')})
 
 
 //HTTP-Server
