@@ -4,9 +4,7 @@ import fs from 'fs';
 import https from 'https';
 import http from 'http';
 import { fileURLToPath } from 'url';
-
 const baseurl = "http://127.0.0.1"
-
 
 //Router Laden
 import {router as gamingtimeRouter} from "./Backend/routes/time/index.js"
@@ -30,25 +28,31 @@ const privateKey = fs.readFileSync("./Cert/key.pem", 'utf8');
 const certificate = fs.readFileSync("./Cert/cert.pem", 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 
-
+// Custom File Mappings
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/Frontend/main/main.html");
 });
 app.get('/user', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Frontend', 'user', 'main.html'));
+  res.sendFile(__dirname + "/Frontend/user/main.html");
 });
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Frontend', 'admin_login', 'main.html'));
+  res.sendFile(__dirname + "/Frontend/admin_login/main.html");
+});
+app.get("/admin-control/style.css", (req, res) => {
+  res.sendFile(__dirname + "/Frontend/admin/style.css");
+});
+app.get("/admin-control/script.js", (req, res) => {
+  res.sendFile(__dirname + "/Frontend/admin/script.js");
 });
 
 
-
+// Foldermapings
 app.use('/', express.static("./Frontend/main"));
 app.use('/user', express.static("./Frontend/user"));
 app.use('/admin', express.static("./Frontend/admin_login"));
 
 
-
+// Routerroutes
 app.use("/api/time", gamingtimeRouter)
 app.use("/api/task", tasksRouter)
 app.use("/api/user", userRouter)
@@ -56,8 +60,8 @@ app.use("/api/storage", adminRouter)
 app.use("/api/login", loginRouter)
 app.use("/api/shutdown", shutdownRouter)
 
-// app.get('/Main', (req, res) => {res.redirect('/')});
-// app.use("", (req, res) => {res.redirect('/')})
+app.get('/Main', (req, res) => {res.redirect('/')});
+app.use("", (req, res) => {res.redirect('/')})
 
 
 //HTTP-Server
@@ -97,7 +101,7 @@ console.log = function(message, ...optionalParams) {
   originalLog(Time() + message, ...optionalParams);
 };
 
-fetch(baseurl + "/api/storage/load")
 console.log("Server Startup!")
+fetch(baseurl + "/api/storage/load")
 
 export default app

@@ -1,14 +1,16 @@
 import express from "express"
 import fs from 'fs';
 import path from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from 'url';
 const router = express.Router()
 const logprefix = "LoginRouter:     "
-const adminPanelDir = "../../../Frontend/admin";
-const adminPanelPath = path.join(adminPanelDir, "main.html");
+
 let passwords = []
 let admin_usernames = []
 let passwordreset = []
+
+const adminPanelDir = "../../../Frontend/admin";
+const adminPanelPath = path.join(adminPanelDir, "main.html");
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,10 +32,10 @@ router.use("/save", (req, res) => {
   fs.writeFileSync("./Backend/saves/passwords.json", buffer)
   buffer = JSON.stringify(admin_usernames)
   fs.writeFileSync("./Backend/saves/admin_usernames.json", buffer)
-  //   console.log(logprefix + "Passwords saved:     " + JSON.stringify(passwords))
-  console.log(logprefix + "Passwords saved:     " + '["Hidden"]')
   // console.log(logprefix + "Usernames saved:     " + JSON.stringify(admin_usernames))
   console.log(logprefix + "Username saved:      " + '["Hidden"]')
+  //   console.log(logprefix + "Passwords saved:     " + JSON.stringify(passwords))
+  console.log(logprefix + "Passwords saved:     " + '["Hidden"]')
   res.send("Passwords Saved")
 })
 
@@ -41,10 +43,10 @@ router.use("/load", (req, res) => {
   passwords = JSON.parse(fs.readFileSync("./Backend/saves/passwords.json"))
   admin_usernames = JSON.parse(fs.readFileSync("./Backend/saves/admin_usernames.json"))
   passwordreset = JSON.parse(fs.readFileSync("./Backend/saves/admin_usernames.json"))
-  // console.log(logprefix + "Passwords loaded:  " + JSON.stringify(passwords))
-  console.log(logprefix + "Passwords loaded:     " + '["Hidden"]')
   // console.log(logprefix + "Passwordresets loaded:  " + JSON.stringify(admin_usernames))
   console.log(logprefix + "Usernames loaded:     " + '["Hidden"]')
+  // console.log(logprefix + "Passwords loaded:  " + JSON.stringify(passwords))
+  console.log(logprefix + "Passwords loaded:     " + '["Hidden"]')
   res.send("Passwords loaded")  
 })
 
@@ -129,8 +131,8 @@ router.get("/passwordreset/:resetstr/:username/:newpasswd", (req, res) => {
 })
 
 router.get("/check/:passwd", (req, res) => {
-  let adminid = passwords.indexOf(req.params.passwd);
-  if (adminid !== -1) {
+  let adminID = passwords.indexOf(req.params.passwd);
+  if (adminID !== -1) {
     res.json({"Okay": true})
   } else {
     res.send({"Okay": false})
@@ -145,20 +147,10 @@ router.get("/:passwd", (req, res) => {
     res.sendFile(path.resolve(__dirname, adminPanelPath));
   } else {
     console.log(logprefix + "Admin user tried to login but the username/password was wrong.");
-    res.status(401).send("Unauthorized"); // optional: mit Statuscode
+    res.status(401).send({"Okay": false, "Reason": "Unauthorized"});
   }
 });
 
-router.get("/assets/style.css", (req, res) => {
-  res.sendFile(path.resolve(__dirname, path.join(adminPanelDir, "style.css")));
-});
 
-router.get("/assets/script.js", (req, res) => {
-  res.sendFile(path.resolve(__dirname, path.join(adminPanelDir, "script.js")));
-});
-
-
-router.use("", (res) => res.status(404).json({error: "not found"}))
-
-
+router.use("", (req, res) => res.status(404).json({error: "not found"}))
 export { router }

@@ -1,5 +1,6 @@
 // let basedomain = "https://discord.techsvc.de:10108"
-let basedomain = "https://localhost:10108"
+// let basedomain = "https://localhost:10108"
+let basedomain = "https://10.10.20.155:10108"
 let execute = true
 let execute2 = true
 

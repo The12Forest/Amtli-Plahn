@@ -1,34 +1,34 @@
 import express from "express"
 const router = express.Router()
-const logprefix = "AdminRouter:     "
+const logprefix = "StorageRouter:   "
 const baseurl = "http://127.0.0.1"
 
 router.use("/save", (req, res) => {
-    console.log(logprefix + "All data saved.")
     fetch(baseurl + "/api/task/save")
     fetch(baseurl + "/api/user/save")
     fetch(baseurl + "/api/time/save")
     fetch(baseurl + "/api/login/save")
-    res.send("All data saved.")
+    res.json({"Okay": true, "reason": "All data saved."})
+    console.log(logprefix + "All data saved.")
 })
 
 router.use("/load", (req, res) => {
-    console.log(logprefix + "All data loaded.")
     fetch(baseurl + "/api/task/load")
     fetch(baseurl + "/api/user/load")
     fetch(baseurl + "/api/time/load")
     fetch(baseurl + "/api/login/load")
-    res.send("All data loaded.")
+    res.json({"Okay": true, "reason": "All data loaded."})
+    console.log(logprefix + "All data loaded.")
 })
 
 router.use("/space", (req, res) => {
     console.log(logprefix)
-    res.send("Space in log created.")
+    res.json({"Okay": true, "reason": "Space in log created."})
 })
 
 router.use("/log/:logmessage", (req, res) => {
     console.log(logprefix + req.params.logmessage)
-    res.send("Added message to log.")
+    res.json({"Okay": true, "reason": "Added message to log."})
 })
 
 router.use("", (req, res) => res.status(404).json({"ok": false, "error": "not found"}))

@@ -6,80 +6,107 @@ const baseurl = "http://127.0.0.1"
 const logprefix = "TaskRouter:      "
 let tasks = []
 let users = []
+let tasks_preset = []
 let task_times = []
-
+let task_times_preset = []
 
 router.use("/save", (req, res) => {
   let buffer = JSON.stringify(tasks)
   fs.writeFileSync("./Backend/saves/tasks.json", buffer)
-  console.log(logprefix + "Settings tasks saved:      " + buffer)
+  console.log(logprefix + "Settings tasks saved:                   " + buffer)
   buffer = JSON.stringify(task_times)
   fs.writeFileSync("./Backend/saves/task_times.json", buffer)
-  console.log(logprefix + "Settings times saved:      " + buffer)
-  res.json(buffer)
+  console.log(logprefix + "Settings times saved:                   " + buffer)
+  buffer = JSON.stringify(task_preset)
+  fs.writeFileSync("./Backend/saves/task_preset.json", buffer)
+  console.log(logprefix + "Settings task-presets saved:            " + buffer)
+  buffer = JSON.stringify(task_times_preset)
+  fs.writeFileSync("./Backend/saves/task_times_preset.json", buffer)
+  console.log(logprefix + "Settings task-time-presets saved:       " + buffer)
+  res.json({"Okay": true})
 })
 
 router.use("/load", (req, res) => {
   task_times = JSON.parse(fs.readFileSync("./Backend/saves/task_times.json"))
   tasks = JSON.parse(fs.readFileSync("./Backend/saves/tasks.json"))
   users = JSON.parse(fs.readFileSync("./Backend/saves/user.json"))
+  tasks_preset = JSON.parse(fs.readFileSync("./Backend/saves/tasks_preset.json"))
+  task_times_preset = JSON.parse(fs.readFileSync("./Backend/saves/task_times_preset.json"))
+  console.log(logprefix + "Times-Preset loaded:  " + JSON.stringify(task_times_preset))
+  console.log(logprefix + "Tasks-Preset loaded:  " + JSON.stringify(tasks_preset))
   console.log(logprefix + "Times loaded:         " + JSON.stringify(task_times))
   console.log(logprefix + "Tasks loaded:         " + JSON.stringify(tasks))
   console.log(logprefix + "Users loaded:         " + JSON.stringify(users))
-  res.json(tasks)
+  res.json({"Okay": true})
 })
 
 router.use("/adduser/:user", (req, res) => {
   if (users.indexOf(req.params.user) !== -1) {
-    res.send("User already exists.")
-    console.log(logprefix + "Tried to register user:  already exists.")   
+    res.json({"Okay": false, "reason": "User already exists."})
+    console.log(logprefix + "Tried to register user: \"" + req.params.user + "\"  already exists.")   
   } else {  
     users.push(req.params.user)
     for (let day = 0; day < 7; day++) {
       tasks[day].push([])
+      task_preset[day].push([])
+      task_times[day].push([])
+      task_times_preset[day].push([])
     }
-
-    console.log(logprefix + "Added user: " + req.params.user)
-    res.json({"user added": req.params.user})  }  
+    console.log(logprefix + "Added user: \"" + req.params.user + "\"")
+    res.json({"User added": req.params.user})  }  
 })
 
 router.use("/deluser/:user", (req, res) => {
   let userID = users.indexOf(req.params.user)
-  if (users.indexOf(req.params.user) == -1) {
-    res.send("User " + req.params.user + " dose not exists.")
-    console.log(logprefix + "Delete user: User " + req.params.user + " dose not exists.")
+  if (userID == -1) {
+    res.json({"Okay": false, "User": req.params.user, "Error": "User dose not exist."})
+    console.log(logprefix + "Tried to delete user: \"" + req.params.user + "\" but he dose not exists.")
   } else {
     for (let day = 0; day < 7; day++) {
       tasks[day].splice(userID, 1)
+      tasks[day].splice(userID, 1)
+      task_preset[day].splice(userID, 1)
+      task_times[day].splice(userID, 1)
+      task_times_preset[day].splice(userID, 1)
     }
     users.splice(userID, 1)
-    res.send("User was deleted.")
-    console.log(logprefix + "User deleted: " + req.params.user)
+    res.json({"Okay": true})
+    console.log(logprefix + "User deleted: \"" + req.params.user + "\"")
   }
 })
 
-router.get("/create/:user/:day/:time/:task/:passwd", (req, res) => {
-  let userid = users.indexOf(req.params.user)
-  //!! Add check of admin passwd here (/api/login/check/:passwd)
+router.get("/create/:user/:day/:time/:task/:passwd", async (req, res) => {
+  let userid = users.indexOf(req.params.user);
   if (userid !== -1) {
-    if (req.params.day == 8) {
-      for (let d = 0; d < 5;) {
-        tasks[d][userid].push(req.params.task)
-        task_times[d][userid].push(req.params.time)    
+    // Day 8 means the whole Week
+    let response = (await fetch(baseurl + "/api/login/check/" + req.params.passwd))
+    response = await response.json()
+    if (response.Okay) {
+      if (req.params.day == 8) {
+        for (let d = 0; d < 7;) {
+          tasks[d][userid].push(req.params.task)
+          task_times[d][userid].push(req.params.time)    
+          console.log(logprefix + "Creating task: " + req.params.task + " for user: " + req.params.user + " with time: " + req.params.time)
+          d++
+        }
+      } else {
+        tasks[req.params.day][userid].push(req.params.task)
+        task_times[req.params.day][userid].push(req.params.time)    
         console.log(logprefix + "Creating task: " + req.params.task + " for user: " + req.params.user + " with time: " + req.params.time)
-        ++d
       }
+      res.send(tasks)
     } else {
-      tasks[req.params.day][userid].push(req.params.task)
-      task_times[req.params.day][userid].push(req.params.time)    
-      console.log(logprefix + "Creating task: " + req.params.task + " for user: " + req.params.user + " with time: " + req.params.time)
+      console.log(logprefix + "Creating task but the admin pw was wrong.")
+      res.json({"Okay": false, "reason": "AdminPW was wrong!"})
+      return
     }
-    res.send(tasks)
   } else {
     console.log(logprefix + "Creating task: But the user: " + req.params.user + " dose not exist.")
     res.send("User dose not exist.")
   }
 }) 
+
+
 router.get("/del/:user/:day/:task/", (req, res) => {
   let userid = users.indexOf(req.params.user)
   let taskid = tasks[req.params.day][userid].indexOf(req.params.task)

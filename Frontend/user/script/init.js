@@ -1,13 +1,18 @@
 // let basedomain = "https://discord.techsvc.de:10108"
-let basedomain = "https://localhost:10108"
+// let basedomain = "https://localhost:10108"
+let basedomain = "https://10.10.20.155:10108"
 let Username
 let isGaming
+
+window.addEventListener("load", start)
+
 
 async function start() {
   await UpadteUsername();
   await time()
   await tasks()
   await isGamingUpdate()
+  document.getElementById("Starttimebutton").addEventListener("click", Starttime)
   // Timeupdatewhilegaming()
 }
 
@@ -21,39 +26,6 @@ async function UpadteUsername() {
   } else {
     console.log("Get username from cookie did not work")
   }
-}
-
-async function isGamingUpdate() {
-  const div = document.getElementById("Starttimebutton");
-  let response = await fetch(basedomain + "/api/time/isgaming/" + Username)
-  response = await response.json()
-  if (response.Okay) {
-    isGaming = response.IsGaming
-    if (isGaming) {
-      div.innerHTML = "Stop Gaming"
-    } else {
-      div.innerHTML = "Start Gaming"
-    }
-  }
-}
-
-async function Starttime() {
-  await fetch(basedomain + "/api/time/isgaming/" + Username + "/" + !isGaming)
-  await new Promise(r => setTimeout(r, 100));
-  await isGamingUpdate()
-  if (isGaming) {
-    Timeupdatewhilegaming()
-  }
-}
-
-async function Timeupdatewhilegaming() {
-  alert("Gamingtime started")
-  while (isGaming) {
-    await new Promise(r => setTimeout(r, 60000));
-    await time()
-    await isGamingUpdate()
-  }
-  alert("No time left!")
 }
 
 async function time() {
@@ -81,12 +53,28 @@ async function tasks() {
         return;
       }
 
-      let i = 0
       div.innerHTML = ""
-      while (i < response.length) {
-        div.innerHTML += "<p class=tasks>" + (i + 1) + ". " + response[i] + " <br><br>Time: " + response_times[i] + "</p>";
-        div.innerHTML += '<button class=tasks-button onclick="userbutton(' + i + ')">Fertig</button>'
-        i++
+      for (let i = 0; i < response.length; i++) {
+        let taskDiv = document.createElement("div")
+        taskDiv.className = "tasks"
+        
+        let taskName = document.createElement("span")
+        taskName.className = "task-name"
+        taskName.textContent = (i + 1) + ". " + response[i]
+        taskDiv.appendChild(taskName)
+        
+        let taskTime = document.createElement("span")
+        taskTime.className = "task-time"
+        taskTime.textContent = "Time: " + response_times[i]
+        taskDiv.appendChild(taskTime)
+        
+        div.appendChild(taskDiv)
+        
+        let button = document.createElement("button")  
+        button.textContent = "Fertig"
+        button.className = "tasks-button"
+        button.addEventListener("click", () => userbutton(i))
+        div.appendChild(button)
       }
     } else {
       console.error("Not array for tasks returned: ", response)
@@ -111,8 +99,3 @@ async function userbutton(task) {
     await delay(2);
     reloadtask();
 }
-
-
-
-start()
-
